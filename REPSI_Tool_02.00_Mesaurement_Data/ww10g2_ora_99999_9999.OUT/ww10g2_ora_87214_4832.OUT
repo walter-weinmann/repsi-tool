@@ -1,0 +1,2754 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Di Jan 30 18:13:31 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_87214_4832.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(135.107) 2007-01-30 18:05:54.078
+
+********************************************************************************
+
+error connecting to database using: /@
+EXPLAIN PLAN option disabled.
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171909 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6738 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=912 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2995 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33263 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171596 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6724 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=895 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2921 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171753 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6700 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2938 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171566 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6704 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2901 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66438 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=205008 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3007 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66450 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.09          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.09          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171621 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6706 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=880 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2902 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66448 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171573 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2904 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171769 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6706 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=880 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2929 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66453 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171642 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6705 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=880 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2930 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33263 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171693 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2969 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33263 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172060 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3382 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33265 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171819 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6711 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=885 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2997 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66468 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171821 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6708 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=883 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2907 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33257 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172197 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6721 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=893 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2972 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33317 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171679 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2948 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66447 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172073 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6715 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=888 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2978 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33267 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171762 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6704 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2943 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33274 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172383 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6980 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=1149 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2904 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33263 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171692 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2974 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33280 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171722 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6712 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=885 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3003 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33261 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171644 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5873 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2937 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33256 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171753 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2969 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66453 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171836 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2993 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66443 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172054 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5872 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2984 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66448 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171771 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6709 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=882 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2998 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33258 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=138598 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6707 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=881 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2969 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33266 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171739 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2946 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33265 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171783 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2943 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33274 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172161 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3177 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33271 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171774 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2909 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33268 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171712 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2977 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33274 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171741 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5873 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2922 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33270 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171949 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6704 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3032 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33267 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171688 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6704 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2905 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66444 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171602 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2953 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172617 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3480 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33266 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171831 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6705 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=880 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2937 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33272 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172254 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=10852 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3241 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33273 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171801 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6707 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=882 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2919 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33261 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171827 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5881 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=887 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2872 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171992 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6709 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=883 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2946 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66453 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.10          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.10          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171769 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2928 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66442 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171944 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6705 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2992 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33283 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171555 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2905 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33258 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171700 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6704 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2940 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33267 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171926 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6704 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2997 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33257 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171671 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2941 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33256 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171667 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6726 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=900 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2941 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33262 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.20       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.20       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171615 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6705 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=880 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2940 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33265 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171702 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=7534 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2926 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66443 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171758 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2986 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33272 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171587 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2920 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66437 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171565 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2912 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33259 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171714 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=8362 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2926 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33291 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=138347 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2901 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33254 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171732 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6709 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=884 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2951 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33267 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=138389 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6700 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=875 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2899 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33259 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.01       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.01       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171568 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2892 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33262 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171570 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2887 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171706 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2990 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33266 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.09          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.09          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171850 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6722 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=897 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2942 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66442 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.01       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.01       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=172845 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5878 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=883 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3370 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33273 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171942 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6708 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=883 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2957 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33293 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171840 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6717 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=889 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2915 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=174167 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6748 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=921 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2905 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33265 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171621 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2887 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33263 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171714 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2977 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66435 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171931 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3031 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33277 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171749 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6719 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=890 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2976 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66442 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171685 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5874 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2939 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33261 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171581 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2928 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33258 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171719 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5872 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2939 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33270 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171853 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3012 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33274 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171736 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6700 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=875 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2951 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33275 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171640 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2970 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66440 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171755 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2988 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33262 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171739 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6706 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2904 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33261 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171604 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6703 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2889 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33258 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171673 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6704 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2953 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33278 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171943 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6705 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3003 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33279 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171613 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2934 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33282 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171759 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6707 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=881 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3023 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66441 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=138656 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6706 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=881 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2926 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33259 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171940 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3137 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33263 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171944 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6701 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=875 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3111 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33267 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171712 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6708 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=880 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2907 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33267 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171722 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6708 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=882 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2896 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33261 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171892 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5871 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3076 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33269 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171688 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6713 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=884 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2914 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33257 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171707 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6700 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=875 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2931 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66443 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171669 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6700 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=875 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2953 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33258 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171708 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6704 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2957 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33266 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171744 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=8360 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=876 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2918 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33281 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171929 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=5874 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=878 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2969 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33264 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171683 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6705 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=881 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2960 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66438 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171830 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6718 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=890 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2960 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33255 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171572 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6706 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=879 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2910 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33262 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171806 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6702 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=877 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3046 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33262 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_COMPANY COMY
+ON SR.COMPANY_CD = COMY.IDENT INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171655 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6708 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=883 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=2922 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33264 us)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT, COMY.IDENT
+FROM TSMT_SERVICE_RECEIVER SR INNER JOIN TSMT_DETAILED_CHARGING DC
+ON SR.IDENT = DC.SERVICE_RECEIVER_ID INNER JOIN TSMT_COMPANY COMY ON SR.COMPANY_CD = COMY.IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.08          0       3970          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.08          0       3970          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH JOIN  (cr=3970 pr=0 pw=0 time=171897 us)
+    831   NESTED LOOPS  (cr=18 pr=0 pw=0 time=6707 us)
+    831    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=883 us)
+    831    INDEX UNIQUE SCAN PK_T_SMT_COMY (cr=2 pr=0 pw=0 time=3033 us)(object id 83857)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=33271 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.00       0.00          0          0          0           0
+Execute    102      0.00       0.00          0          0          0           0
+Fetch   331900      8.54       8.45          0     397000          0     3318300
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   332103      8.54       8.46          0     397000          0     3318300
+
+Misses in library cache during parse: 0
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      0      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        0      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    0  internal SQL statements in session.
+  102  SQL statements in session.
+    0  statements EXPLAINed in this session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_87214_4832.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+     102  SQL statements in trace file.
+       4  unique SQL statements in trace file.
+  333294  lines in trace file.
+     120  elapsed seconds in trace file.
+
+

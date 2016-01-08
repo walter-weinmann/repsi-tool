@@ -1,0 +1,2449 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on So Jan 21 11:41:56 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80911_4296.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(156.567) 2007-01-21 11:11:43.054
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54036 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=100061 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33226 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54236 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33257 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98419 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54697 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=99047 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55121 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97046 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54291 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33253 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98247 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33227 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54775 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97401 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33230 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54403 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.18       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.18       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97812 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54515 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.12          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.12          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=102414 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33222 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=58289 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98027 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33226 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=57712 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98284 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55348 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.12          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.12          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=105282 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33226 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55080 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97760 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54392 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.12          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.12          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=100918 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33402 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.08        675        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.08        675        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=675 pw=0 time=69525 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=675 pw=0 time=37688 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.12         15        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.12         15        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=15 pw=0 time=103274 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=15 pw=0 time=33223 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.07        654        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.07        654        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=654 pw=0 time=62843 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=654 pw=0 time=33499 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          3        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          3        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=3 pw=0 time=97572 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=3 pw=0 time=33234 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54058 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33247 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98565 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55629 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98667 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33228 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=56785 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=99042 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54371 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98316 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54336 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33247 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97014 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54876 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97633 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55143 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98689 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33222 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54440 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97823 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54566 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.12          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.12          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98949 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33293 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=56614 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33283 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.17       0.14          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.17       0.14          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=119301 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54132 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33247 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97439 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54195 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97546 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54958 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=101024 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33228 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54030 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=99888 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33226 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55019 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97143 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54223 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97556 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54828 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97455 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54608 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97323 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33229 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55892 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33253 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97101 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33218 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54106 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97945 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54588 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97638 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55368 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.23       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.23       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98176 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33234 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55444 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98723 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54115 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=100081 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54769 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97433 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54031 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.17       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.17       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=99902 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=53710 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98245 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55469 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33259 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97642 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33239 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55006 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98514 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54928 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98049 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54442 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97965 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55199 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33290 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.12          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.12          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=102746 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=57124 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33253 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=97199 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=55215 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33277 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=98901 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33228 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH GROUP BY (cr=693 pr=0 pw=0 time=54360 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT COMPONENT_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+GROUP BY COMPONENT_ID, IDENT
+ORDER BY COMPONENT_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.13          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.13          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT GROUP BY (cr=693 pr=0 pw=0 time=109997 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.00       0.00          0          0          0           0
+Execute    102      0.01       0.00          0          0          0           0
+Fetch   331900      9.71       9.14       1347      69300          0     3318300
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   332103      9.73       9.16       1347      69300          0     3318300
+
+Misses in library cache during parse: 2
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      0      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        0      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    0  internal SQL statements in session.
+  102  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80911_4296.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+     102  SQL statements in trace file.
+       4  unique SQL statements in trace file.
+  332994  lines in trace file.
+     117  elapsed seconds in trace file.
+
+

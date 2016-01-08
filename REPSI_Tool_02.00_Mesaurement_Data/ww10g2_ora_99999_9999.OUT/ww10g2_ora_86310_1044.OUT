@@ -1,0 +1,2699 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Mi Jan 3 14:02:12 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86110_1044.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(149.2883) 2007-01-03 11:26:24.968
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.03       0.09          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.36       2393      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.46       2393      12656          0      101962
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2393 pw=0 time=360987 us)
+     26   SORT UNIQUE (cr=693 pr=618 pw=0 time=54005 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=34734 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1775 pw=0 time=205607 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.29       2376      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.29       2376      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2376 pw=0 time=332859 us)
+     26   SORT UNIQUE (cr=693 pr=612 pw=0 time=26031 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=612 pw=0 time=33465 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1764 pw=0 time=102840 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.39       0.30       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.39       0.30       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=333167 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26354 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33464 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102840 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.31       2393      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.31       2393      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2393 pw=0 time=339476 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=32321 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33451 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=103105 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.26       0.30       2395      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.26       0.30       2395      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2395 pw=0 time=343571 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=36421 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33486 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102994 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.31       2390      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.31       2390      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2390 pw=0 time=340387 us)
+     26   SORT UNIQUE (cr=693 pr=629 pw=0 time=33501 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=629 pw=0 time=33829 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=205437 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.30       2392      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.30       2392      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2392 pw=0 time=333085 us)
+     26   SORT UNIQUE (cr=693 pr=629 pw=0 time=26267 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=629 pw=0 time=33459 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102827 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.23       0.32       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.23       0.32       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=538027 us)
+     26   SORT UNIQUE (cr=693 pr=629 pw=0 time=27067 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=629 pw=0 time=33478 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=205432 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.39       0.33       2388      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.39       0.33       2388      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2388 pw=0 time=436370 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=27577 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33606 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=205429 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.35       0.34       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.35       0.34       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=437942 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=29092 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33470 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1759 pw=0 time=205453 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.34       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.34       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=434889 us)
+     26   SORT UNIQUE (cr=693 pr=626 pw=0 time=26018 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=626 pw=0 time=33473 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=205420 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.35       0.34       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.35       0.35       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=442235 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=33375 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33451 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=205464 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.40       0.32       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.40       0.32       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=345956 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=38962 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33578 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=205433 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.26       0.28       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.26       0.28       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=332470 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=25641 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33466 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102832 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.31       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.31       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=439899 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=31130 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33573 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102830 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.31       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.31       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=334681 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=27850 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33453 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1758 pw=0 time=102836 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.21       0.33       2385      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.21       0.33       2385      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2385 pw=0 time=442245 us)
+     26   SORT UNIQUE (cr=693 pr=626 pw=0 time=33376 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=626 pw=0 time=33451 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1759 pw=0 time=205483 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.27       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.27       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=334726 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27913 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33466 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1759 pw=0 time=102830 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.27       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.27       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=537215 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26428 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33534 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=102835 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.27       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.27       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=333211 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=26394 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33462 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102825 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.23       0.27       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.23       0.27       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=333428 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26630 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33458 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102825 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.26       0.27       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.26       0.27       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=332825 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26020 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33456 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1755 pw=0 time=102837 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.26       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.26       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=333121 us)
+     26   SORT UNIQUE (cr=693 pr=627 pw=0 time=26305 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=627 pw=0 time=33488 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102844 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.21       0.27       2395      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.21       0.27       2395      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2395 pw=0 time=332947 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26097 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33458 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102840 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.15       0.27       2385      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.15       0.27       2385      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2385 pw=0 time=333226 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26404 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33457 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=102883 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.28       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.28       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=332692 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=25783 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33507 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102839 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.26       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.26       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=333162 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26337 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33457 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102830 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.23       0.27       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.23       0.27       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=334134 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=27286 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33458 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1755 pw=0 time=102830 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.21       0.26       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.21       0.26       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=332925 us)
+     26   SORT UNIQUE (cr=693 pr=627 pw=0 time=26099 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=627 pw=0 time=33467 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102838 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.27       2395      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.27       2395      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2395 pw=0 time=333361 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26566 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33454 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102825 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.39       0.27       2385      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.39       0.27       2385      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2385 pw=0 time=333607 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26778 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33458 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=102833 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.26       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.26       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=332621 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=25790 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33475 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102841 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.29       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.29       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=333125 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26300 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33470 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102829 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.29       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.29       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=335821 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=28949 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33494 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1756 pw=0 time=102880 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.37       0.29       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.37       0.29       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=337629 us)
+     26   SORT UNIQUE (cr=693 pr=624 pw=0 time=30707 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=624 pw=0 time=33532 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102843 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.32       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.32       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=339235 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=31780 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33567 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102941 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.21       0.29       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.21       0.29       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=335904 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=29074 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33473 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=102832 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.43       0.31       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.45       0.31       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=434850 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=26035 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33472 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=205416 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.32       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.32       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=333829 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26976 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33458 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=205424 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.33       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.33       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=338271 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=31250 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33758 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1755 pw=0 time=205426 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.20       0.27       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.20       0.27       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=334387 us)
+     26   SORT UNIQUE (cr=693 pr=627 pw=0 time=27573 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=627 pw=0 time=33511 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102837 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.27       2395      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.27       2395      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2395 pw=0 time=332500 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=25686 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33450 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102831 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.28       2385      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.28       2385      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2385 pw=0 time=332938 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26082 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33467 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=102843 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.28       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.28       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=332928 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=26084 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33477 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102833 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.28       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.28       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=333478 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26664 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33463 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102825 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.27       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.27       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=332643 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=25847 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33449 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1755 pw=0 time=102828 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.26       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.26       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=333120 us)
+     26   SORT UNIQUE (cr=693 pr=627 pw=0 time=26294 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=627 pw=0 time=33463 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102835 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.27       2395      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.27       2395      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2395 pw=0 time=333598 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26736 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33483 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102835 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.26       2385      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.26       2385      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2385 pw=0 time=333427 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26630 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33460 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=102843 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.30       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.30       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=332696 us)
+     26   SORT UNIQUE (cr=693 pr=627 pw=0 time=25834 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=627 pw=0 time=33477 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=205422 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.29       2392      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.29       2392      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2392 pw=0 time=333834 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27000 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33453 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102839 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.31       2388      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.31       2388      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2388 pw=0 time=335178 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=28301 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33506 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102851 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.29       2388      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.29       2388      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2388 pw=0 time=333276 us)
+     26   SORT UNIQUE (cr=693 pr=625 pw=0 time=26422 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=625 pw=0 time=33464 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102835 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.28       2390      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.28       2390      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2390 pw=0 time=332854 us)
+     26   SORT UNIQUE (cr=693 pr=630 pw=0 time=25943 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=630 pw=0 time=33453 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102840 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.29       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.29       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=333418 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26582 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33452 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1757 pw=0 time=102843 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.26       0.28       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.26       0.28       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=333290 us)
+     26   SORT UNIQUE (cr=693 pr=626 pw=0 time=26367 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=626 pw=0 time=33465 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102903 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.18       0.31       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.18       0.31       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=333053 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26206 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33463 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=205417 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.31       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.31       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=437137 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27943 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33494 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=102863 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.29       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.29       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=338488 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=31408 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33510 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102833 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.32       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.32       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=536980 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26210 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33457 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=205425 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.31       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.31       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=333834 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26999 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33465 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1755 pw=0 time=205425 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.31       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.31       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=332626 us)
+     26   SORT UNIQUE (cr=693 pr=627 pw=0 time=25762 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=627 pw=0 time=33477 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=205425 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.40       0.31       2393      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.40       0.31       2393      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2393 pw=0 time=334016 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27093 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33883 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102831 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.31       2385      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.31       2385      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2385 pw=0 time=336126 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=27307 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33477 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=207138 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.35       0.29       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.35       0.29       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=334594 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=27781 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33480 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102833 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.28       2392      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.28       2392      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2392 pw=0 time=333855 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26714 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33489 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=103013 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.21       0.28       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.21       0.28       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=333215 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26347 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33450 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1759 pw=0 time=102837 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.35       0.29       2393      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.35       0.29       2393      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2393 pw=0 time=334767 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27867 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33466 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102843 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.28       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.28       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=333689 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26827 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33236 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1755 pw=0 time=102831 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.28       2390      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.28       2390      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2390 pw=0 time=332896 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=25959 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33479 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1758 pw=0 time=205418 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.30       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.30       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=435445 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26611 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33474 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102838 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.30       2384      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.30       2384      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2384 pw=0 time=332616 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=25782 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33245 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1753 pw=0 time=102835 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.30       2390      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.30       2390      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2390 pw=0 time=351541 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=44698 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=232563 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1758 pw=0 time=102832 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.20       0.31       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.20       0.31       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=333092 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26199 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33730 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102845 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.39       0.29       2395      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.39       0.29       2395      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2395 pw=0 time=333548 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26720 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33463 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102835 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.43       0.30       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.43       0.30       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=343384 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=36559 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33484 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102838 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.29       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.29       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=333619 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26669 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33487 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102842 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.30       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.30       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=334009 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27091 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33486 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102841 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.32       0.29       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.32       0.29       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=539022 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=28264 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33460 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1755 pw=0 time=102832 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.29       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.29       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=332706 us)
+     26   SORT UNIQUE (cr=693 pr=627 pw=0 time=25860 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=627 pw=0 time=33481 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102828 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.17       0.28       2395      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.17       0.28       2395      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2395 pw=0 time=333273 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26280 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33483 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102839 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.30       2385      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.30       2385      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2385 pw=0 time=335469 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=28649 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33459 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1754 pw=0 time=205428 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.35       0.32       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.35       0.32       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=440443 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=31391 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33534 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=205422 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.40       0.30       2394      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.40       0.30       2394      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2394 pw=0 time=332763 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=25925 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33465 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=205421 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.29       0.30       2386      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.29       0.30       2386      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2386 pw=0 time=337175 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=30173 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33478 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1755 pw=0 time=102852 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.21       0.30       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.21       0.30       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=336178 us)
+     26   SORT UNIQUE (cr=693 pr=627 pw=0 time=29330 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=627 pw=0 time=99824 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1762 pw=0 time=102835 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.33       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.33       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=435636 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26833 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33484 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1759 pw=0 time=205440 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.33       2388      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.33       2388      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2388 pw=0 time=334004 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27142 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33488 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1756 pw=0 time=205421 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.30       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.30       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=340611 us)
+     26   SORT UNIQUE (cr=693 pr=629 pw=0 time=33674 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=629 pw=0 time=33467 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102885 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.26       0.31       2392      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.26       0.31       2392      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2392 pw=0 time=334511 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27617 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33465 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102836 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.25       0.32       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.25       0.32       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=334802 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=27635 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33479 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1757 pw=0 time=205463 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.23       0.28       2390      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.23       0.28       2390      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2390 pw=0 time=333361 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26516 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33449 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1758 pw=0 time=102834 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.28       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.28       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=435316 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=26437 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33468 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1761 pw=0 time=102843 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.42       0.27       2389      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.42       0.27       2389      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2389 pw=0 time=537073 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26301 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33461 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1757 pw=0 time=102841 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.34       0.33       2390      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.34       0.33       2390      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2390 pw=0 time=335398 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=28533 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33591 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1758 pw=0 time=513158 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.31       0.33       2388      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.31       0.33       2388      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2388 pw=0 time=345795 us)
+     26   SORT UNIQUE (cr=693 pr=628 pw=0 time=38959 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33467 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=205434 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.37       0.30       2392      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.37       0.30       2392      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2392 pw=0 time=333298 us)
+     26   SORT UNIQUE (cr=693 pr=632 pw=0 time=26465 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=632 pw=0 time=33471 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102834 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.28       0.29       2387      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.28       0.29       2387      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2387 pw=0 time=333108 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=26271 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33229 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1756 pw=0 time=102873 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT DISTINCT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.21       0.28       2388      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.21       0.28       2388      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2388 pw=0 time=333306 us)
+     26   SORT UNIQUE (cr=693 pr=625 pw=0 time=26474 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=625 pw=0 time=33462 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1763 pw=0 time=102833 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_METERING
+WHERE SERVICE_PROVIDER_ID IN (SELECT SERVICE_PROVIDER_ID
+FROM TSMT_DETAILED_CHARGING)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10197      0.26       0.28       2391      12656          0      101962
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10199      0.26       0.28       2391      12656          0      101962
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 101962  HASH JOIN  (cr=12656 pr=2391 pw=0 time=339442 us)
+     26   SORT UNIQUE (cr=693 pr=631 pw=0 time=32164 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=35188 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=11963 pr=1760 pw=0 time=102836 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.04       0.10          0          0          0           0
+Execute    102      0.00       0.00          0          0          0           0
+Fetch   1019700     30.00      29.99     238961    1265600          0    10196200
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   1019903     30.04      30.10     238961    1265600          0    10196200
+
+Misses in library cache during parse: 1
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        5      0.00       0.00          0          0          0           0
+Execute      5      0.00       0.00          0          0          0           0
+Fetch        5      0.00       0.00          0         10          0           5
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       15      0.00       0.00          0         10          0           5
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    5  internal SQL statements in session.
+  107  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86110_1044.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       5  internal SQL statements in trace file.
+     107  SQL statements in trace file.
+       5  unique SQL statements in trace file.
+ 1021116  lines in trace file.
+     445  elapsed seconds in trace file.
+
+

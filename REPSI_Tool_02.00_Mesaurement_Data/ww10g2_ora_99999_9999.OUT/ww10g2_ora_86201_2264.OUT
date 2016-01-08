@@ -1,0 +1,3050 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Do Jan 25 19:07:33 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86201_2264.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(152.1413) 2007-01-25 19:03:54.484
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11314 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=284 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10183 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.15       0.16          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.59          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.75       0.76          0      62731          0          36
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=253709 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=253557 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=597192 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10939 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=252 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9941 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.57       0.66          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.57       0.66          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=295745 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=295523 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=667977 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11045 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=227 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10077 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.62          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.62          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=245170 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=244983 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=622092 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10746 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=228 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9825 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.62          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.62          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=263997 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=263810 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=624758 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11163 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=228 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10104 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.62          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.62          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=275083 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=274896 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=627200 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10854 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=228 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9939 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.60          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.60          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=252681 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=252493 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=607797 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10763 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=241 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9842 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.63          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.63          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=270135 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=269947 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=631263 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10889 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=227 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9972 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.63          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.63          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=248222 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=248034 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=628508 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10902 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=232 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9908 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.69          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.69          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=270692 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=270504 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=692543 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10780 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=227 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9831 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.65          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.65          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=265966 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=265813 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=656722 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=12105 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=142 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=11136 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.60          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.60          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=249461 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=249308 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=604397 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10976 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=277 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9976 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.64          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.64          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=249286 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=249099 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=646525 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10759 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=227 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9864 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.57       0.61          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.57       0.61          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=245595 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=245407 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=610860 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10828 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=227 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9878 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.61          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.61          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=250464 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=250311 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=610915 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10670 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=229 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9720 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.60          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.60          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=244386 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=244234 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=602105 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10903 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=226 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9948 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.62          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.62          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=248717 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=248495 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=627664 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11488 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=230 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10055 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.60          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.60          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=249310 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=249192 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=606263 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11713 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=132 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10803 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.60          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.60          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=249911 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=249724 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=607515 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10752 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=238 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9757 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.64       0.66          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.64       0.66          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=264064 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=263877 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=659170 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11843 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=232 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10835 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.64       0.64          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.64       0.64          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=263320 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=263167 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=647731 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11052 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=246 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10057 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.65          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.65          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=293915 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=293726 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=655843 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11317 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=259 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10345 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.63          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.63          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=266067 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=265879 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=630055 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11916 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=232 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10830 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.65       0.65          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.65       0.65          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=266105 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=265918 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=648978 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11439 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=240 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10012 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.63          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.63          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=271530 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=271344 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=634010 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11018 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=230 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10069 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.64          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.64          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=261412 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=261225 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=642747 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11269 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=232 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9951 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.64       0.71          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.64       0.71          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=255504 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=255352 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=710086 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10901 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=228 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9922 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.66          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.66          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=248606 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=248384 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=661687 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11217 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=452 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9832 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.65       0.64          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.65       0.64          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=271089 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=270901 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=647002 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11137 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=239 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9963 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.62          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.62          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=274051 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=273898 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=621985 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11041 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=239 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10064 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.71          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.71          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=256488 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=256302 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=717147 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10979 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=227 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9927 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.65          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.65          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=250847 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=250695 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=653143 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10878 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=231 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9880 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.66          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.66          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=259701 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=259514 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=665984 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11396 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=227 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10393 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.66          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.66          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=247832 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=247644 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=662489 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10724 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=228 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9824 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.64       0.66          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.64       0.66          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=267133 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=266980 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=667396 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10778 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=232 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9844 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.65          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.65          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=259930 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=259743 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=648819 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11271 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=246 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10009 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.65          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.65          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=277460 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=277271 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=653578 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11109 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=224 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9944 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.63          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.63          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=295258 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=295071 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=629231 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11811 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=226 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10375 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.63          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.63          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=252238 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=252051 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=637562 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11402 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=2672 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13032 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.62          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.62          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=248372 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=248185 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=619965 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11293 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=229 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9893 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.59       0.67          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.59       0.67          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=267772 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=267585 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=671857 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11889 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=230 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10189 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.61          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.61          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=250957 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=250804 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=615286 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11307 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=230 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9906 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.64       0.72          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.64       0.72          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=280674 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=280451 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=724318 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10896 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=229 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9796 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.62          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.62          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=263415 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=263227 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=625087 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11775 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=230 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10711 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.62          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.62          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=252631 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=252445 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=627234 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.00       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11518 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=236 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10440 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.65          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.65          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=250632 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=250446 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=648549 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11305 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=232 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10282 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.65       0.64          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.65       0.64          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=255367 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=255179 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=638739 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11654 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=285 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10387 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.66          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.64       0.66          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=321293 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=321070 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=667630 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=16646 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=229 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=15413 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.62       0.63          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.62       0.63          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=268582 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=268394 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=631235 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=10930 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=237 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9897 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.64       0.64          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.64       0.64          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=248074 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=247922 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=637147 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID
+AND NOT DC.QUANTITY >= 10000)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.01       0.01          0        724          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.01       0.01          0        724          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  HASH JOIN ANTI (cr=724 pr=0 pw=0 time=11565 us)
+     95   TABLE ACCESS FULL TSMT_CATALOGUE_SERVICE (cr=31 pr=0 pw=0 time=239 us)
+   1572   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10294 us)
+
+********************************************************************************
+
+SELECT CSE.SERVICE_ID, CSE.NAME
+FROM TSMT_CATALOGUE_SERVICE CSE
+WHERE CSE.YEAR = 2006
+AND 10000 <=
+ALL (SELECT DC.QUANTITY
+FROM TSMT_DETAILED_CHARGING DC
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_ID = CSE.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        4      0.60       0.68          0      62731          0          36
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.60       0.68          0      62731          0          36
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     36  TABLE ACCESS BY INDEX ROWID TSMT_CATALOGUE_SERVICE (cr=62731 pr=0 pw=0 time=270891 us)
+     36   INDEX RANGE SCAN PK_T_SMT_CSE (cr=62720 pr=0 pw=0 time=270701 us)(object id 83844)
+     59    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=62714 pr=0 pw=0 time=679834 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.17       0.17          0          0          0           0
+Execute    102      0.01       0.00          0          0          0           0
+Fetch      400     31.29      32.81          0    3172750          0        3600
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      603     31.48      32.99          0    3172750          0        3600
+
+Misses in library cache during parse: 1
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse       81      0.00       0.00          0          0          0           0
+Execute     81      0.03       0.03          0          0          0           0
+Fetch      206      0.01       0.11          7        379          0         271
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      368      0.04       0.15          7        379          0         271
+
+Misses in library cache during parse: 3
+Misses in library cache during execute: 3
+
+  102  user  SQL statements in session.
+   81  internal SQL statements in session.
+  183  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86201_2264.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+      81  internal SQL statements in trace file.
+     183  SQL statements in trace file.
+      19  unique SQL statements in trace file.
+    2951  lines in trace file.
+      35  elapsed seconds in trace file.
+
+

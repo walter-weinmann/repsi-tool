@@ -1,0 +1,2899 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Mi Jan 3 14:02:08 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86103_4968.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(153.2932) 2007-01-03 11:18:19.203
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.03       0.02          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.03       0.04          0        741          0         416
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9012 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=131 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9153 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.03       0.02          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.04       0.03          0        741          0         416
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9311 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=91 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9449 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9369 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=106 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9421 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9229 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=127 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9759 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9157 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=127 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9558 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8926 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=121 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9488 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9818 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=119 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9950 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8463 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=82 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9052 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8507 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9094 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8869 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9048 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8919 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=88 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9086 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.03       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.03       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9105 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=88 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9249 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9002 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=118 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9173 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8976 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9147 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9384 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=92 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9374 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8954 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=89 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9108 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.03       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.03       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9082 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9125 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8937 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9110 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9129 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=84 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9299 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8952 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=113 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9062 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8936 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=84 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9105 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8901 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9076 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.03       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.03       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8576 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9167 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8950 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=116 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9127 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8613 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9200 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8864 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=117 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9040 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8664 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=84 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9251 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8955 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=116 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9126 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8984 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=132 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9136 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8501 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9088 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8908 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=82 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9068 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8637 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9216 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9489 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=85 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9640 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9053 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=85 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9213 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9042 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9207 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9380 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=86 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9438 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8620 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9204 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=10108 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=118 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=10272 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8600 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9187 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8942 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=125 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9077 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9353 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=82 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9521 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8950 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=117 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9119 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8989 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=117 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9166 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9177 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=117 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9326 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9156 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=116 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9300 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8742 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=95 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9244 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9035 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=82 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9207 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9016 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=125 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9151 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9012 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=86 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9168 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9229 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=123 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9189 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8714 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=86 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9244 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9077 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=118 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9192 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9095 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=120 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9197 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9019 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=116 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9137 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8615 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9149 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8953 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=118 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9064 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8981 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9105 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8974 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=85 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9093 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.03       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.03       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9026 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=122 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9098 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8701 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=117 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9231 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9012 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=81 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9133 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9143 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=114 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9269 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9023 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9139 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8968 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=117 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9072 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9155 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=92 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9244 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8956 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9084 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8979 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=84 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9099 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8781 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=93 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9263 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9057 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9181 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8692 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=118 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9228 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9319 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=86 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9404 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9179 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=116 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=10906 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9208 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=119 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9289 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9012 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=82 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9134 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8695 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9235 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8907 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=122 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9393 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=12935 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=122 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=13024 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8717 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=87 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9234 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9106 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9229 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9098 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=123 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9209 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9403 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=86 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9497 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9477 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=96 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9346 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.03       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.03       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8694 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=84 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9224 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8627 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=117 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9162 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8670 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=85 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9201 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9151 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=89 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9230 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9890 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=119 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9990 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.03       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.03       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8580 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=81 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9114 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8564 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=117 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9090 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8689 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=114 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9220 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8999 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9082 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9008 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=119 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9120 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.03       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.03       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9074 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=118 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9188 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9019 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=83 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9142 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=8998 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=118 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9110 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8694 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=82 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9225 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9111 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=85 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9228 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.00       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.00       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=8502 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=116 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9038 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND EXISTS (
+SELECT *
+FROM TSMT_SERVICE_PROVIDER SEP
+WHERE SEP.HIERARCHY_CD LIKE 'PGIN%'
+AND SEP.IDENT = DDC.SERVICE_PROVIDER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN RIGHT SEMI (cr=741 pr=0 pw=0 time=9284 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=114 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9409 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_PROVIDER_ID IN (SELECT IDENT
+FROM TSMT_SERVICE_PROVIDER
+WHERE HIERARCHY_CD LIKE 'PGIN%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       42      0.01       0.01          0        741          0         416
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       44      0.01       0.01          0        741          0         416
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    416  HASH JOIN  (cr=741 pr=0 pw=0 time=9026 us)
+     34   TABLE ACCESS FULL TSMT_SERVICE_PROVIDER (cr=7 pr=0 pw=0 time=84 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=734 pr=0 pw=0 time=9145 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.06       0.05          0          0          0           0
+Execute    102      0.01       0.00          0          0          0           0
+Fetch     4200      1.10       1.07          0      74100          0       41600
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     4403      1.18       1.13          0      74100          0       41600
+
+Misses in library cache during parse: 2
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        8      0.00       0.00          0          0          0           0
+Execute      8      0.00       0.00          0          0          0           0
+Fetch        8      0.00       0.00          0         16          0           8
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       24      0.00       0.00          0         16          0           8
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    8  internal SQL statements in session.
+  110  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86103_4968.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       8  internal SQL statements in trace file.
+     110  SQL statements in trace file.
+       5  unique SQL statements in trace file.
+    5797  lines in trace file.
+       3  elapsed seconds in trace file.
+
+

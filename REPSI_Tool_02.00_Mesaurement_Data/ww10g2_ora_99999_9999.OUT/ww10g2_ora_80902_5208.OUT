@@ -1,0 +1,2349 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on So Jan 21 11:41:55 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80902_5208.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(156.554) 2007-01-21 11:09:43.419
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.07          0        693          0       33183
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=92016 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33238 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.09          0        693          0       33183
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85624 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56395 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33254 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85237 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54810 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=83061 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33218 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=66698 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33250 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84347 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33223 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55918 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33252 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.10          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.10          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=92535 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33232 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56216 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85144 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54471 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84112 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56380 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84167 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54796 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=86082 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54494 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=88960 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33227 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=58095 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33272 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84151 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54966 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=83454 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55106 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.15       0.10          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.15       0.10          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85226 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33218 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55752 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33252 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85806 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56328 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84540 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55625 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.10          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.10          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84344 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55323 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33249 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=86059 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54739 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=105815 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55603 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33249 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84109 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=57012 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=88101 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55735 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33257 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84772 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55643 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84423 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33230 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54986 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85022 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33218 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55743 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=87730 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55184 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=83779 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33218 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55449 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33249 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=88535 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33229 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56625 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33278 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84696 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33218 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55470 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84778 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54785 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.10          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.10          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84963 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.03       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.03       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55793 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33293 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=88370 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33233 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=57605 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=83460 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33234 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55230 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.10          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.10          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=94885 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55494 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.11          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.11          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=109976 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33228 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.07          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.07          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56144 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84515 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55012 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33253 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84946 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55485 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85548 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55231 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=90011 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55424 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85654 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55473 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84433 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=57288 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33252 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=83628 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55672 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85891 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55883 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84765 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33226 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55181 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33240 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84798 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33221 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55525 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.12       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.12       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=86985 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.04       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.04       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56779 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.10       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.10       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85256 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56476 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=83873 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33225 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.01       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.01       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55618 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=85024 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=55282 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.06       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.06       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=84141 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33220 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=56089 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.14       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.14       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=86304 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33219 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.07       0.06          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.07       0.06          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  HASH UNIQUE (cr=693 pr=0 pw=0 time=54932 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT DISTINCT SERVICE_RECEIVER_ID, IDENT
+FROM TSMT_DETAILED_CHARGING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     3319      0.09       0.09          0        693          0       33183
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     3321      0.09       0.09          0        693          0       33183
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  33183  SORT UNIQUE (cr=693 pr=0 pw=0 time=86152 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33224 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.00       0.00          0          0          0           0
+Execute    102      0.00       0.00          0          0          0           0
+Fetch   331900      8.57       8.11          0      69300          0     3318300
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   332103      8.57       8.12          0      69300          0     3318300
+
+Misses in library cache during parse: 2
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      0      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        0      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    0  internal SQL statements in session.
+  102  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80902_5208.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+     102  SQL statements in trace file.
+       4  unique SQL statements in trace file.
+  332894  lines in trace file.
+     115  elapsed seconds in trace file.
+
+

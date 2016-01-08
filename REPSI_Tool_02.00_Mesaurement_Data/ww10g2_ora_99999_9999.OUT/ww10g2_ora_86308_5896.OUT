@@ -1,0 +1,2899 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Mi Jan 3 14:02:09 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86108_5896.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(149.2870) 2007-01-03 11:18:36.468
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.03       0.07          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.04       0.08          0        856          0        1521
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14723 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=183 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14261 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.04       0.01          0        856          0        1521
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11591 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=225 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10909 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=16054 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=169 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12392 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11774 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=170 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11157 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13391 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=317 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14451 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11428 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=193 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10808 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11468 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=161 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10889 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11458 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=211 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10887 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14534 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=170 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10903 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14071 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=171 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11911 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=17533 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=161 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10879 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13606 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=172 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11445 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11520 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=163 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12553 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11397 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=208 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10827 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11564 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=210 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10990 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11569 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=162 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10987 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11505 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=183 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10873 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11482 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=163 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10905 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11611 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=177 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11003 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11534 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=162 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10894 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13268 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=217 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12770 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11422 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10842 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11721 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=177 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10956 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11472 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=211 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10903 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11424 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=211 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10851 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11443 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=171 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10832 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11551 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=172 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10941 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14513 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=164 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12505 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11458 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=167 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12480 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14453 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14049 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14472 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=214 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10847 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13293 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=216 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12789 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=23663 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=179 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12448 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11414 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=162 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10791 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11500 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=164 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10874 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11527 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=160 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10902 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=12986 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=162 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10784 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11441 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12406 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=12028 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=166 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11347 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11796 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=168 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11147 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11482 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=161 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10846 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11479 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=159 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10846 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13460 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=167 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14525 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13563 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=213 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14628 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14477 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=166 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12415 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=15995 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10795 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14485 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=164 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12420 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.04       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.04       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14459 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=160 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14025 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=12930 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=212 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10791 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11612 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=237 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10936 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=12259 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=171 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11550 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11793 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=209 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11160 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11550 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=164 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10859 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11649 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12615 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14699 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12637 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14571 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=164 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12499 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14519 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=170 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14054 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14554 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=174 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14059 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11464 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=170 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10820 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11481 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=162 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12465 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11686 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=163 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11058 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11463 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=163 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10837 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11816 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=223 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11022 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11855 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=229 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11106 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11733 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=161 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11075 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11492 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=163 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=9232 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11626 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=209 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10986 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11857 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=169 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11222 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11638 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=169 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10902 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11504 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=212 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10878 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11475 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=170 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10810 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11636 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=217 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12513 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=14748 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=213 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12682 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=12165 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=9885 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11424 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=211 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10801 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11462 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=214 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10839 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11468 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=161 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=9234 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11696 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=166 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12674 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11661 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=171 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11022 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11675 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=159 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11040 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=15501 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=170 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11731 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=17259 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=216 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=13124 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11948 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=177 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12857 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13451 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=221 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12874 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13442 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14510 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13175 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=164 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=14238 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11978 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=167 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11342 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11944 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=170 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11273 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11640 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=164 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=11010 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11380 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=210 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12370 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11460 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12440 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11747 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=212 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12731 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13053 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=163 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12506 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=15484 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=13422 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=13115 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=214 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=12562 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11581 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=214 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10884 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.03       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.03       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11650 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=210 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10907 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11436 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=162 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10806 us)
+
+********************************************************************************
+
+SELECT IDENT
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND SERVICE_RECEIVER_ID NOT IN (SELECT IDENT
+FROM TSMT_SERVICE_RECEIVER
+WHERE HIERARCHY_CD LIKE 'PGI%')
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.00       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.00       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11472 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=172 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10824 us)
+
+********************************************************************************
+
+SELECT DDC.IDENT
+FROM TSMT_DETAILED_CHARGING DDC
+WHERE DDC.PERIOD = TO_DATE ('01.06', 'MM.YY')
+AND NOT EXISTS (
+SELECT *
+FROM TSMT_SERVICE_RECEIVER SER
+WHERE SER.HIERARCHY_CD LIKE 'PGI%'
+AND SER.IDENT = DDC.SERVICE_RECEIVER_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      153      0.01       0.01          0        856          0        1521
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      155      0.01       0.01          0        856          0        1521
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1521  HASH JOIN RIGHT ANTI (cr=856 pr=0 pw=0 time=11538 us)
+     50   TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=16 pr=0 pw=0 time=159 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=840 pr=0 pw=0 time=10884 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.04       0.08          0          0          0           0
+Execute    102      0.00       0.00          0          0          0           0
+Fetch    15300      1.39       1.33          0      85600          0      152100
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    15503      1.43       1.41          0      85600          0      152100
+
+Misses in library cache during parse: 2
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse       10      0.00       0.00          0          0          0           0
+Execute     10      0.00       0.00          0          0          0           0
+Fetch       10      0.00       0.00          0         20          0          10
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       30      0.00       0.00          0         20          0          10
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+   10  internal SQL statements in session.
+  112  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86108_5896.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+      10  internal SQL statements in trace file.
+     112  SQL statements in trace file.
+       5  unique SQL statements in trace file.
+   16913  lines in trace file.
+       6  elapsed seconds in trace file.
+
+

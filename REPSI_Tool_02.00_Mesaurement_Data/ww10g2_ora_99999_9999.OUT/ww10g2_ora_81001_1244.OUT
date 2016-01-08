@@ -1,0 +1,2299 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on So Jan 21 11:41:58 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_81001_1244.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(139.1953) 2007-01-21 11:15:43.745
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.15       0.16          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.39       0.45       2200       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.54       0.61       2200       1954          4      102583
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2200 pw=250 time=394920 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1950 pw=0 time=103742 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.45       2203       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.45       2203       1954          5      102583
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2203 pw=272 time=380236 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1931 pw=0 time=102862 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.54       0.49       2190       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.54       0.49       2190       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2190 pw=250 time=420611 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1940 pw=0 time=102851 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.39       0.45       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.39       0.45       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=385269 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102901 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.45       2189       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.45       2189       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2189 pw=250 time=585678 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1939 pw=0 time=102855 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.50       0.45       2204       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.50       0.45       2204       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2204 pw=272 time=378561 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1932 pw=0 time=102858 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.48       0.45       2190       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.48       0.45       2190       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2190 pw=250 time=382657 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1940 pw=0 time=102865 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.57       0.58       2203       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.57       0.58       2203       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2203 pw=272 time=457184 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1931 pw=0 time=102859 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.44       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.44       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=381050 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102858 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.46       0.45       2207       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.46       0.45       2207       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2207 pw=272 time=376935 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102861 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.39       0.46       2179       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.39       0.46       2179       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2179 pw=250 time=397837 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1929 pw=0 time=102849 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.35       0.44       2211       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.35       0.44       2211       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2211 pw=272 time=373704 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1939 pw=0 time=102852 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.51       0.47       2182       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.51       0.47       2182       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2182 pw=250 time=410666 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1932 pw=0 time=102849 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.46       2210       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.46       2210       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2210 pw=272 time=389589 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1938 pw=0 time=102867 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.53       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.53       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=450834 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102849 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.35       0.49       2209       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.35       0.49       2209       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2209 pw=272 time=411664 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102862 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.45       2182       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.45       2182       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2182 pw=250 time=388975 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1932 pw=0 time=102842 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.49       2210       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.49       2210       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2210 pw=272 time=416984 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1938 pw=0 time=102864 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.64       2183       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.64       2183       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2183 pw=250 time=578387 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102851 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.48       0.49       2209       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.48       0.49       2209       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2209 pw=272 time=420444 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102857 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.52       2183       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.52       2183       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2183 pw=250 time=450198 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102905 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.46       0.47       2210       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.46       0.47       2210       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2210 pw=272 time=390667 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1938 pw=0 time=102883 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.48       2191       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.48       2191       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2191 pw=250 time=418959 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1941 pw=0 time=102869 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.52       2203       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.52       2203       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2203 pw=272 time=439301 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1931 pw=0 time=102850 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.46       2186       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.46       2186       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2186 pw=250 time=395177 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1936 pw=0 time=103006 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.46       2206       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.46       2206       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2206 pw=272 time=391729 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1934 pw=0 time=102849 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.45       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.45       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=378853 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102836 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.48       2206       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.48       2206       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2206 pw=272 time=403036 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1934 pw=0 time=102846 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.49       2184       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.49       2184       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2184 pw=250 time=413640 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1934 pw=0 time=102864 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.51       0.50       2207       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.51       0.50       2207       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2207 pw=272 time=424526 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102840 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.39       0.47       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.39       0.47       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=401357 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102865 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.52       2209       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.52       2209       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2209 pw=272 time=433831 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102870 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.51       2178       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.51       2178       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2178 pw=250 time=448805 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1928 pw=0 time=102873 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.40       0.55       2213       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.40       0.55       2213       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2213 pw=272 time=479729 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1941 pw=0 time=102873 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.39       0.45       2181       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.39       0.45       2181       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2181 pw=250 time=380838 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1931 pw=0 time=102847 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.45       2209       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.45       2209       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2209 pw=272 time=383907 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102851 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.50       0.49       2183       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.50       0.49       2183       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2183 pw=250 time=416047 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=103161 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.46       2209       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.46       2209       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2209 pw=272 time=384440 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102877 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.50       0.46       2183       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.50       0.46       2183       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2183 pw=250 time=392013 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102850 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.34       0.51       2209       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.34       0.51       2209       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2209 pw=272 time=425069 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102856 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.54       0.55       2184       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.54       0.55       2184       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2184 pw=250 time=489245 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1934 pw=0 time=102904 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.46       0.46       2204       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.46       0.46       2204       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2204 pw=272 time=404659 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1932 pw=0 time=102856 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.49       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.49       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=395264 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102853 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.44       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.44       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=371461 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102848 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.44       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.44       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=382135 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102968 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.46       0.48       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.46       0.48       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=392293 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102866 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.46       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.46       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=395215 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102873 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.53       0.47       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.53       0.47       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=398573 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102848 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.40       0.55       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.40       0.55       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=475334 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102861 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.48       0.49       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.48       0.49       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=406405 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102857 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.51       0.45       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.51       0.45       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=383038 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102849 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.39       0.44       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.39       0.44       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=374732 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102849 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.44       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.44       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=379741 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102869 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.51       0.45       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.51       0.45       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=375391 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102862 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.53       0.46       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.53       0.46       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=397121 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102877 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.50       0.64       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.50       0.64       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=564304 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102845 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.46       2186       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.46       2186       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2186 pw=250 time=392898 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1936 pw=0 time=102864 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.31       0.55       2222       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.31       0.55       2222       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2222 pw=272 time=479525 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1950 pw=0 time=102863 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.46       2183       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.46       2183       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2183 pw=250 time=389014 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102848 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.45       2211       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.45       2211       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2211 pw=272 time=378438 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1939 pw=0 time=102852 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.46       0.54       2182       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.46       0.54       2182       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2182 pw=250 time=465051 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1932 pw=0 time=102862 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.47       2210       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.47       2210       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2210 pw=272 time=397373 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1938 pw=0 time=102984 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.40       0.49       2183       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.40       0.49       2183       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2183 pw=250 time=423061 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102858 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.40       0.51       2207       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.40       0.51       2207       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2207 pw=272 time=421273 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102846 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.46       0.46       2186       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.46       0.46       2186       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2186 pw=250 time=385106 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1936 pw=0 time=102889 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.39       0.46       2206       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.39       0.46       2206       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2206 pw=272 time=393938 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1934 pw=0 time=102859 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.44       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.44       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=380312 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102849 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.48       2207       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.48       2207       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2207 pw=272 time=411343 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=103010 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.47       2187       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.47       2187       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2187 pw=250 time=409993 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=103222 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.56       0.46       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.56       0.46       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=392850 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102847 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.47       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.47       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=384347 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102871 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.50       0.50       2207       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.50       0.50       2207       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2207 pw=272 time=406538 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102878 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.45       2178       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.45       2178       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2178 pw=250 time=384549 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1928 pw=0 time=102861 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.47       2209       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.47       2209       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2209 pw=272 time=402072 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102885 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.47       2181       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.47       2181       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2181 pw=250 time=403869 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1931 pw=0 time=102957 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.46       0.45       2211       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.46       0.45       2211       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2211 pw=272 time=371450 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1939 pw=0 time=102848 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.45       2181       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.45       2181       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2181 pw=250 time=384053 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1931 pw=0 time=102859 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.53       2210       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.53       2210       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2210 pw=272 time=459322 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1938 pw=0 time=102865 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.46       2182       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.46       2182       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2182 pw=250 time=394649 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1932 pw=0 time=102858 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.50       0.49       2209       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.50       0.49       2209       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2209 pw=272 time=401775 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1937 pw=0 time=102846 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.50       0.48       2183       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.50       0.48       2183       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2183 pw=250 time=418634 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102869 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.46       2208       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.46       2208       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2208 pw=272 time=386429 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1936 pw=0 time=102865 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.46       1.58       2184       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.46       1.58       2184       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2184 pw=250 time=1507072 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1934 pw=0 time=102863 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.34       0.44       2207       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.34       0.44       2207       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2207 pw=272 time=369844 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102852 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.51       0.62       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.51       0.62       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=553672 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102864 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.40       0.47       2207       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.40       0.47       2207       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2207 pw=272 time=400483 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102887 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.46       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.46       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=397890 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102863 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.57       0.50       2206       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.57       0.50       2206       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2206 pw=272 time=404350 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1934 pw=0 time=102844 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.42       0.44       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.42       0.44       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=387845 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102869 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.32       0.45       2206       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.32       0.45       2206       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2206 pw=272 time=388318 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1934 pw=0 time=102966 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.44       2185       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.44       2185       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2185 pw=250 time=387033 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102852 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.51       0.44       2207       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.51       0.44       2207       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2207 pw=272 time=379714 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1935 pw=0 time=102856 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.40       0.59       2186       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.40       0.59       2186       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2186 pw=250 time=531344 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1936 pw=0 time=102894 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.40       0.44       2205       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.40       0.44       2205       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2205 pw=272 time=370813 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1933 pw=0 time=102928 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.43       0.45       2175       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.43       0.45       2175       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2175 pw=250 time=393416 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1925 pw=0 time=102871 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.40       0.46       2211       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.40       0.46       2211       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2211 pw=272 time=394295 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1939 pw=0 time=102878 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.45       0.59       2182       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.45       0.59       2182       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2182 pw=250 time=538765 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1932 pw=0 time=102843 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.35       0.47       2211       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.35       0.47       2211       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2211 pw=272 time=398682 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1939 pw=0 time=102882 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID * 100000000 + IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.37       0.44       2181       1954          4      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.37       0.44       2181       1954          4      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2181 pw=250 time=381882 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1931 pw=0 time=102956 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE FROM TSMT_DETAILED_METERING
+ORDER BY SERVICE_RECEIVER_ID, IDENT
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    10259      0.35       0.47       2213       1954          5      102583
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    10261      0.35       0.47       2213       1954          5      102583
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 102583  SORT ORDER BY (cr=1954 pr=2213 pw=272 time=407131 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1941 pw=0 time=102868 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.15       0.16          0          0          0           0
+Execute    102      0.00       0.00          0          0          0           0
+Fetch   1025900     44.07      49.63     219615     195400        450    10258300
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   1026103     44.23      49.80     219615     195400        450    10258300
+
+Misses in library cache during parse: 2
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse       48      0.01       0.00          0          0          0           0
+Execute     48      0.00       0.00          0          0          0           0
+Fetch      150      0.00       0.00          2        264          0         112
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      246      0.01       0.00          2        264          0         112
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+   48  internal SQL statements in session.
+  150  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_81001_1244.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+      48  internal SQL statements in trace file.
+     150  SQL statements in trace file.
+      17  unique SQL statements in trace file.
+ 1027420  lines in trace file.
+     395  elapsed seconds in trace file.
+
+

@@ -1,0 +1,2804 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Mo Jan 29 18:43:58 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_87231_6496.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(128.7491) 2007-01-29 17:40:30.375
+
+********************************************************************************
+
+error connecting to database using: /@
+EXPLAIN PLAN option disabled.
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.06       0.05          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.09         18       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.09       0.14         18       2096          0         819
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=18 pw=0 time=4619 us)
+  16907   NESTED LOOPS  (cr=578 pr=18 pw=0 time=33955 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=770 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=18 pw=0 time=43048 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4425 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=766 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18956 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=3608 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17050 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=399 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18915 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4413 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=762 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18889 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4494 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17058 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=396 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18972 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4394 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17050 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18987 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4636 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17050 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19038 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.06       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.06       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4452 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17112 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18989 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4489 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19019 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4411 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17052 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18977 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4403 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=398 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18894 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4434 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33951 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18990 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4502 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33953 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=762 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18901 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.06       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.06       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4443 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=396 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19098 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4488 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=34002 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=777 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18997 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4422 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17049 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18962 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4484 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17043 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18961 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4415 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19161 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4418 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17050 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19013 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4424 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=50858 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19765 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4486 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18968 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4401 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=398 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18950 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4439 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18938 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4408 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17043 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18932 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4495 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=763 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18957 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4407 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17048 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18923 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4406 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18924 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4414 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18952 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4498 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=763 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18926 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4425 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=50857 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19186 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4399 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17048 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18996 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4433 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33956 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=418 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18947 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.06       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.06       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4859 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17050 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=398 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18960 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4446 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=769 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19010 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4399 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=762 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18906 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4392 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17054 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=398 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19110 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4512 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17051 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18962 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4403 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18956 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4403 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18953 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4393 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33953 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18955 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.00       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.00       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4494 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17049 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18952 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4404 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17043 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=395 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18977 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4415 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18945 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.06       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.06       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4410 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33950 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=399 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18948 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=3672 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17048 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18905 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4399 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17042 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=398 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18940 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4429 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33951 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=400 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18922 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4404 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=766 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18912 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4514 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=406 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18919 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.00       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.00       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4440 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33952 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=785 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18927 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=3598 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=398 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18959 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.06       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.06       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=6048 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33945 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19047 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.04          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.04          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4490 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19150 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.00       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.00       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4430 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33954 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=781 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18967 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=5217 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=396 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18923 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4415 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18937 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4512 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=413 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18966 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=5023 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=398 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18955 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4426 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17051 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=401 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19033 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=5228 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17043 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18915 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4479 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33971 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=396 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18923 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=3582 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17043 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19075 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4430 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19098 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4397 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=399 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18996 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4512 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=404 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19012 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4401 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18923 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4403 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=762 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18979 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4509 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18979 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4540 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18973 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4438 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18949 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4394 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18934 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4440 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33949 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=403 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18976 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4570 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17063 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=400 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19041 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4398 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18940 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4397 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17043 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18928 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.00       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.00       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4439 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33953 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=763 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18953 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4553 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=769 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18948 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4406 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33949 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18935 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=8504 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17042 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18981 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4413 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18937 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4495 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18956 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.00       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.00       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4431 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33948 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=769 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18931 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=7668 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=396 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19050 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4432 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33953 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=779 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18960 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4479 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17062 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18956 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4422 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33957 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18959 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=3587 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17045 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=761 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18956 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=3582 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18914 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4487 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18925 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4496 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18922 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4400 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18938 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=5224 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17043 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18996 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4490 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=401 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18965 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.04       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.04       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4408 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=759 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18981 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4432 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17046 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=397 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18982 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4412 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17057 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=396 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=19002 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4486 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17047 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18895 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=3584 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17043 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=760 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18935 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC INNER JOIN TSMT_SERVICE_RECEIVER SR
+ON DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.01       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.01       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4443 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=17044 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=769 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18918 us)(object id 89036)
+
+********************************************************************************
+
+SELECT DC.IDENT, SR.IDENT
+FROM TSMT_DETAILED_CHARGING DC, TSMT_SERVICE_RECEIVER SR
+WHERE DC.PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC.SERVICE_RECEIVER_ID = SR.IDENT
+AND SR.COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch       82      0.03       0.03          0       2096          0         819
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       84      0.03       0.03          0       2096          0         819
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+    819  TABLE ACCESS BY INDEX ROWID TSMT_DETAILED_CHARGING (cr=2096 pr=0 pw=0 time=4441 us)
+  16907   NESTED LOOPS  (cr=578 pr=0 pw=0 time=33951 us)
+    364    TABLE ACCESS FULL TSMT_SERVICE_RECEIVER (cr=56 pr=0 pw=0 time=771 us)
+  16542    INDEX RANGE SCAN IDX_T_SMT_DC_SERVICE_RECEIVER (cr=522 pr=0 pw=0 time=18967 us)(object id 89036)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.06       0.06          0          0          0           0
+Execute    102      0.00       0.00          0          0          0           0
+Fetch     8200      3.17       3.21         18     209600          0       81900
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     8403      3.23       3.28         18     209600          0       81900
+
+Misses in library cache during parse: 2
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse       10      0.00       0.00          0          0          0           0
+Execute     10      0.00       0.00          0          0          0           0
+Fetch       10      0.00       0.00          0         20          0          10
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       30      0.00       0.00          0         20          0          10
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+   10  internal SQL statements in session.
+  112  SQL statements in session.
+    0  statements EXPLAINed in this session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_87231_6496.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+      10  internal SQL statements in trace file.
+     112  SQL statements in trace file.
+       5  unique SQL statements in trace file.
+    9713  lines in trace file.
+       6  elapsed seconds in trace file.
+
+

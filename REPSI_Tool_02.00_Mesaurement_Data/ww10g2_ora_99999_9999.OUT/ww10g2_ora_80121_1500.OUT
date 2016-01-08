@@ -1,0 +1,2949 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Fr Dez 15 14:50:57 2006
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80121_1500.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(149.252) 2006-12-15 12:43:14.781
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.01       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.51       0.36       1775      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.51       0.36       1775      15959          0      135766
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=1775 pw=0 time=407965 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=0 pw=0 time=66595 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1775 pw=0 time=103233 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.32       0.33       2448       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.32       0.33       2448       2647          0       13379
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2448 pw=0 time=320135 us)
+ 135766   UNION-ALL  (cr=2647 pr=2448 pw=0 time=271816 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=690 pw=0 time=33460 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1758 pw=0 time=102774 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.39       0.36       2494      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.39       0.36       2494      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2494 pw=0 time=408059 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=677 pw=0 time=66701 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1817 pw=0 time=102827 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.32       0.29       2375       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.32       0.29       2375       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2375 pw=0 time=283322 us)
+ 135766   UNION-ALL  (cr=2647 pr=2375 pw=0 time=271656 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33301 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1744 pw=0 time=102804 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.37       0.35       2395      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.37       0.35       2395      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2395 pw=0 time=407985 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=632 pw=0 time=33444 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1763 pw=0 time=102842 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.28       2367       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.28       2367       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2367 pw=0 time=281316 us)
+ 135766   UNION-ALL  (cr=2647 pr=2367 pw=0 time=271670 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=625 pw=0 time=33315 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1742 pw=0 time=102776 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.46       0.40       2379      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.46       0.40       2379      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2379 pw=0 time=408127 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=621 pw=0 time=33545 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1758 pw=0 time=102813 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.29       2376       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.29       2376       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2376 pw=0 time=283218 us)
+ 135766   UNION-ALL  (cr=2647 pr=2376 pw=0 time=271656 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33301 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1745 pw=0 time=102779 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.37       0.36       2370      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.37       0.36       2370      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2370 pw=0 time=408059 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=623 pw=0 time=33502 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1747 pw=0 time=102824 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2360       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2360       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2360 pw=0 time=281781 us)
+ 135766   UNION-ALL  (cr=2647 pr=2360 pw=0 time=271653 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=625 pw=0 time=33299 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1735 pw=0 time=102779 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.37       0.38       2384      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.37       0.38       2384      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2384 pw=0 time=408054 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=629 pw=0 time=33503 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1755 pw=0 time=102830 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.30       2361       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.30       2361       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2361 pw=0 time=292684 us)
+ 135766   UNION-ALL  (cr=2647 pr=2361 pw=0 time=271665 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=617 pw=0 time=33309 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1744 pw=0 time=102776 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.32       0.36       2375      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.32       0.36       2375      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2375 pw=0 time=407960 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=620 pw=0 time=66618 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1755 pw=0 time=102827 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2361       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2361       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2361 pw=0 time=282175 us)
+ 135766   UNION-ALL  (cr=2647 pr=2361 pw=0 time=271655 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=617 pw=0 time=33299 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1744 pw=0 time=102787 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.25       0.36       2374      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.25       0.36       2374      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2374 pw=0 time=408002 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=620 pw=0 time=33449 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1754 pw=0 time=102839 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2361       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2361       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2361 pw=0 time=284507 us)
+ 135766   UNION-ALL  (cr=2647 pr=2361 pw=0 time=271662 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=616 pw=0 time=33305 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1745 pw=0 time=102775 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.34       0.36       2374      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.34       0.36       2374      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2374 pw=0 time=407972 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=619 pw=0 time=33428 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1755 pw=0 time=102824 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2361       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2361       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2361 pw=0 time=282197 us)
+ 135766   UNION-ALL  (cr=2647 pr=2361 pw=0 time=271654 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=617 pw=0 time=33297 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1744 pw=0 time=102784 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.40       0.35       2376      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.40       0.35       2376      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2376 pw=0 time=407982 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=620 pw=0 time=33427 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1756 pw=0 time=102825 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2360       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2360       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2360 pw=0 time=282743 us)
+ 135766   UNION-ALL  (cr=2647 pr=2360 pw=0 time=271654 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=616 pw=0 time=33299 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1744 pw=0 time=102880 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.40       0.38       2376      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.40       0.38       2376      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2376 pw=0 time=407974 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=620 pw=0 time=66601 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1756 pw=0 time=102852 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2361       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2361       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2361 pw=0 time=284456 us)
+ 135766   UNION-ALL  (cr=2647 pr=2361 pw=0 time=271672 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=616 pw=0 time=33317 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1745 pw=0 time=102787 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.25       0.36       2391      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.25       0.36       2391      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2391 pw=0 time=408047 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=638 pw=0 time=33511 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1753 pw=0 time=102837 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.33       2369       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.33       2369       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2369 pw=0 time=318857 us)
+ 135766   UNION-ALL  (cr=2647 pr=2369 pw=0 time=271664 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33307 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1738 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.50       0.37       2395      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.50       0.37       2395      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2395 pw=0 time=408083 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=630 pw=0 time=66713 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1765 pw=0 time=102846 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2369       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2369       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2369 pw=0 time=284247 us)
+ 135766   UNION-ALL  (cr=2647 pr=2369 pw=0 time=271658 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33301 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1738 pw=0 time=102782 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.39       0.37       2383      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.39       0.37       2383      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2383 pw=0 time=408067 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=629 pw=0 time=66695 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1754 pw=0 time=102833 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.26       0.28       2360       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.28       2360       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2360 pw=0 time=281479 us)
+ 135766   UNION-ALL  (cr=2647 pr=2360 pw=0 time=271653 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=622 pw=0 time=33297 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1738 pw=0 time=102778 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.53       0.36       2396      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.53       0.36       2396      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2396 pw=0 time=407974 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=33434 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1755 pw=0 time=102838 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.28       2370       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.28       2370       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2370 pw=0 time=281299 us)
+ 135766   UNION-ALL  (cr=2647 pr=2370 pw=0 time=271652 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33296 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1739 pw=0 time=102777 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.35       0.35       2394      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.35       0.35       2394      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2394 pw=0 time=408046 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=629 pw=0 time=33503 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1765 pw=0 time=102828 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2373       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2373       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2373 pw=0 time=288555 us)
+ 135766   UNION-ALL  (cr=2647 pr=2373 pw=0 time=271661 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=631 pw=0 time=33306 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1742 pw=0 time=102782 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.34       0.38       2389      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.34       0.38       2389      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2389 pw=0 time=408050 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=629 pw=0 time=66686 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1760 pw=0 time=102827 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.32       0.33       2358       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.32       0.33       2358       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2358 pw=0 time=323879 us)
+ 135766   UNION-ALL  (cr=2647 pr=2358 pw=0 time=271654 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=630 pw=0 time=33298 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1728 pw=0 time=102783 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.50       0.36       2383      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.50       0.36       2383      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2383 pw=0 time=408115 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=637 pw=0 time=33564 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102619 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.29       2362       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.29       2362       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2362 pw=0 time=282836 us)
+ 135766   UNION-ALL  (cr=2647 pr=2362 pw=0 time=271657 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=626 pw=0 time=33301 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1736 pw=0 time=102840 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.34       0.36       2376      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.34       0.36       2376      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2376 pw=0 time=408101 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=634 pw=0 time=66687 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1742 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.26       0.29       2358       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.26       0.29       2358       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2358 pw=0 time=282406 us)
+ 135766   UNION-ALL  (cr=2647 pr=2358 pw=0 time=271655 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=623 pw=0 time=33298 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1735 pw=0 time=102787 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.39       0.36       2383      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.39       0.36       2383      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2383 pw=0 time=408055 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=637 pw=0 time=66688 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2363       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2363       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2363 pw=0 time=282658 us)
+ 135766   UNION-ALL  (cr=2647 pr=2363 pw=0 time=271687 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33330 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1745 pw=0 time=102787 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.39       0.35       2362      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.39       0.35       2362      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2362 pw=0 time=408171 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=626 pw=0 time=66809 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1736 pw=0 time=102612 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.25       0.29       2361       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.25       0.29       2361       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2361 pw=0 time=282133 us)
+ 135766   UNION-ALL  (cr=2647 pr=2361 pw=0 time=271655 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=628 pw=0 time=33301 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102795 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.26       0.35       2378      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.26       0.35       2378      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2378 pw=0 time=408061 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=66699 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1739 pw=0 time=102610 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.26       0.28       2360       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.26       0.28       2360       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2360 pw=0 time=281308 us)
+ 135766   UNION-ALL  (cr=2647 pr=2360 pw=0 time=271662 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=625 pw=0 time=33306 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1735 pw=0 time=102787 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.42       0.38       2378      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.42       0.38       2378      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2378 pw=0 time=408092 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=635 pw=0 time=66707 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1743 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.29       2359       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.29       2359       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2359 pw=0 time=282031 us)
+ 135766   UNION-ALL  (cr=2647 pr=2359 pw=0 time=271657 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=624 pw=0 time=33300 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1735 pw=0 time=102784 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.35       0.35       2382      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.35       0.35       2382      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2382 pw=0 time=408054 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=636 pw=0 time=33512 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102610 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.29       2348       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.29       2348       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2348 pw=0 time=283911 us)
+ 135766   UNION-ALL  (cr=2647 pr=2348 pw=0 time=271654 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33299 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1730 pw=0 time=102788 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.43       0.35       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.43       0.35       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408075 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=66702 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=288636 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271657 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33301 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102788 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.31       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.31       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408065 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=66699 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102609 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.30       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.30       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=298745 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271656 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33300 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102784 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.31       0.36       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.31       0.36       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408088 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=66741 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102610 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=281312 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271652 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33296 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102907 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.48       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.48       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408061 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=66703 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.25       0.29       2363       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.25       0.29       2363       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2363 pw=0 time=283466 us)
+ 135766   UNION-ALL  (cr=2647 pr=2363 pw=0 time=271655 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33299 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1745 pw=0 time=102784 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.37       0.37       2374      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.37       0.37       2374      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2374 pw=0 time=408072 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=625 pw=0 time=66703 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1749 pw=0 time=102610 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.29       2360       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.29       2360       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2360 pw=0 time=283292 us)
+ 135766   UNION-ALL  (cr=2647 pr=2360 pw=0 time=271656 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=615 pw=0 time=66481 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1745 pw=0 time=102789 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.37       0.36       2373      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.37       0.36       2373      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2373 pw=0 time=408050 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=627 pw=0 time=66684 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=282021 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271672 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33316 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102799 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.39       0.35       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.39       0.35       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408059 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=66701 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.30       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.30       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=294422 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271655 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33299 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102832 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.39       0.37       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.39       0.37       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408069 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=66698 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102610 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=288051 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271654 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33297 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102818 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.45       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.45       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408072 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=33522 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102612 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.31       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.32       0.31       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=311144 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271706 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33349 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102878 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.43       0.35       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.43       0.35       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408079 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=66726 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.34       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.34       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=283964 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271652 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33297 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102779 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.35       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.35       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408123 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=33517 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102622 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.30       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.30       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=294493 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271656 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33299 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102787 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.45       0.35       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.45       0.35       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408055 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=33513 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.28       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.28       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=279212 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271655 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33298 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102792 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.45       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.45       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408061 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=66696 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102609 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.30       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.30       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=282937 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271658 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33302 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102781 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.32       0.36       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.32       0.36       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408092 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=66714 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.32       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.32       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=315922 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271674 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33314 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102840 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.28       0.37       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.28       0.37       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408068 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=33529 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.28       2361       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.28       2361       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2361 pw=0 time=280791 us)
+ 135766   UNION-ALL  (cr=2647 pr=2361 pw=0 time=271653 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=616 pw=0 time=33296 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1745 pw=0 time=102784 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.50       0.35       2373      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.50       0.35       2373      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2373 pw=0 time=408048 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=627 pw=0 time=33504 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102610 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=282285 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271652 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33295 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102785 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.32       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.32       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408067 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=33521 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102614 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.29       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.29       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=282075 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271653 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33298 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102792 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.26       0.35       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.26       0.35       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408065 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=66702 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=282456 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271653 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33297 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102784 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.46       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.46       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408073 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=66701 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102617 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=283980 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271661 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33306 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102786 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.29       0.39       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.29       0.39       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408082 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=33519 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=286360 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271654 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33297 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102785 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.31       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.31       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408046 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=66696 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.32       0.29       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.32       0.29       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=288040 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271655 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33299 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102787 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.45       0.36       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.45       0.36       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408059 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=33513 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102610 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.31       0.33       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.31       0.33       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=321321 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271685 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33329 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102791 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.34       0.36       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.34       0.36       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=543935 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=66805 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.29       0.29       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.29       0.29       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=285818 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271656 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33300 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102777 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.39       0.35       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.39       0.35       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408052 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=66690 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.29       2349       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.29       2349       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2349 pw=0 time=286206 us)
+ 135766   UNION-ALL  (cr=2647 pr=2349 pw=0 time=271657 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33301 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1731 pw=0 time=102786 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.45       0.35       2387      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.45       0.35       2387      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2387 pw=0 time=408055 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=641 pw=0 time=33525 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102619 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.31       2351       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.31       2351       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2351 pw=0 time=302442 us)
+ 135766   UNION-ALL  (cr=2647 pr=2351 pw=0 time=271653 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33297 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1733 pw=0 time=102911 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION ALL
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    13577      0.20       0.38       2385      15959          0      135766
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    13579      0.20       0.38       2385      15959          0      135766
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 135766  UNION-ALL  (cr=15959 pr=2385 pw=0 time=408094 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=3952 pr=639 pw=0 time=33513 us)
+ 102583   TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=12007 pr=1746 pw=0 time=102611 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE AS CHARGING,
+NULL AS METERING
+FROM TSMT_DETAILED_CHARGING
+UNION
+SELECT NULL AS CHARGING,
+AMOUNT_SERVICE AS METERING
+FROM TSMT_DETAILED_METERING
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch     1338      0.28       0.32       2363       2647          0       13379
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total     1340      0.28       0.32       2363       2647          0       13379
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  13379  SORT UNIQUE (cr=2647 pr=2363 pw=0 time=302434 us)
+ 135766   UNION-ALL  (cr=2647 pr=2363 pw=0 time=271678 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=618 pw=0 time=33322 us)
+ 102583    TABLE ACCESS FULL TSMT_DETAILED_METERING (cr=1954 pr=1745 pw=0 time=102796 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.03       0.00          0          0          0           0
+Execute    102      0.01       0.00          0          0          0           0
+Fetch   745750     33.93      33.26     236609     930300          0     7457250
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   745953     33.98      33.27     236609     930300          0     7457250
+
+Misses in library cache during parse: 2
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      0      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        0      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    0  internal SQL statements in session.
+  102  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80121_1500.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+     102  SQL statements in trace file.
+       4  unique SQL statements in trace file.
+  747362  lines in trace file.
+     291  elapsed seconds in trace file.
+
+

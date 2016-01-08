@@ -1,0 +1,2649 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on So Jan 21 11:41:54 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80801_1564.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(139.1901) 2007-01-21 11:07:37.066
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15636 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13647 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.03          0        693          0           6
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=29391 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=29366 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33251 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15067 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13449 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26657 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26632 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33264 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15455 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13446 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26393 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26391 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15420 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13459 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27112 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27082 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15335 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13498 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27930 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27899 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33251 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=14999 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13471 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26320 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26290 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33238 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15226 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13495 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26515 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26490 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15568 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13915 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26275 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26245 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=14989 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13393 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26360 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26329 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33239 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15139 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13572 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26560 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26532 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33247 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15045 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13447 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26348 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26324 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15235 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13451 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26309 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26280 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33239 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15228 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13430 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26780 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26751 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33237 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15185 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13462 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27556 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27525 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33239 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15390 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13425 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26914 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=28504 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15363 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13464 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.03          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.03          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=32085 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=32047 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33255 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15002 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13356 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26498 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26469 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33238 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15643 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13502 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27031 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27001 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33239 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16332 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13496 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26316 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26287 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33239 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.00       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.00       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15425 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13463 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26786 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26752 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16358 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13373 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26275 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26246 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33239 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15430 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13264 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26396 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26367 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33238 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15400 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13436 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27414 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27384 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16794 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13454 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27711 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27680 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33315 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15183 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13530 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.03          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.03          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=31000 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=31005 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33261 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15925 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13643 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27502 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27472 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33258 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=18906 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13656 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27384 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27354 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33287 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.03          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.03          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=30735 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13789 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.05          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.05          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=52909 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=52875 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33264 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16968 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=14004 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=28437 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=28375 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33283 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=20667 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13749 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27448 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27411 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33281 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15984 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13631 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.04       0.03          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.04       0.03          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=38391 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=38360 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33284 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15563 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13810 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26810 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26785 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33250 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16927 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=14399 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.03          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.03          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=33367 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=33342 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16425 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13686 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27123 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27093 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33251 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15545 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13863 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26902 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26872 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15764 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13660 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27301 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27277 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15321 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13615 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26853 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26822 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16095 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13547 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26901 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26870 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33274 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15601 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13492 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27380 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27350 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16274 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13881 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26913 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26853 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33266 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=27243 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13588 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27396 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27362 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33253 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=16742 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13565 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27141 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27111 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15411 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13471 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27227 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27198 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33268 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=17342 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=14521 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27765 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27735 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15740 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13471 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=26974 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26879 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33256 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=18482 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=18412 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.03          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.03          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=32908 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=32882 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=35097 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15364 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13453 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27019 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=26989 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33251 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15724 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13460 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27217 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27187 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33257 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.00       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.00       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=17736 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13968 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=27525 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=27524 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33255 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+GROUP BY PERIOD, SIGN
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.01       0.01          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.01       0.01          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  HASH GROUP BY (cr=693 pr=0 pw=0 time=15567 us)
+   4835   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13523 us)
+
+********************************************************************************
+
+SELECT PERIOD, SIGN, SUM (QUANTITY)
+FROM TSMT_DETAILED_CHARGING
+GROUP BY PERIOD, SIGN
+HAVING PERIOD BETWEEN CAST ('01.01.2006' AS DATE)
+AND CAST ('31.03.2006' AS DATE)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        1      0.03       0.02          0        693          0           6
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3      0.03       0.02          0        693          0           6
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+      6  FILTER  (cr=693 pr=0 pw=0 time=28530 us)
+     32   HASH GROUP BY (cr=693 pr=0 pw=0 time=28504 us)
+  33183    TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33251 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.01       0.00          0          0          0           0
+Execute    102      0.01       0.01          0          0          0           0
+Fetch      100      2.18       2.24          0      69300          0         600
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      303      2.21       2.26          0      69300          0         600
+
+Misses in library cache during parse: 1
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      0      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        0      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    0  internal SQL statements in session.
+  102  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80801_1564.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+     102  SQL statements in trace file.
+       4  unique SQL statements in trace file.
+    1383  lines in trace file.
+       3  elapsed seconds in trace file.
+
+

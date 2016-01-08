@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="REPSI Tool" default="zip_measurement_data" basedir=".">
+
+	<description>
+		REPSI tool build file
+	</description>
+
+	<!-- Global Properties ================================================= -->
+
+	<property name="version" value="02.00" />
+
+	<property name="dir.build.jar" value="${basedir}/.build.jar" />
+	<property name="dir.build.zip" value="${basedir}/.build.zip" />
+	<property name="dir.bin" value="${basedir}/bin" />
+	<property name="dir.config" value="${basedir}/config" />
+	<property name="dir.dist" value="../Distribution/${version}" />
+	<property name="dir.doc" value="${basedir}/doc" />
+	<property name="dir.in" value="${basedir}/in" />
+	<property name="dir.lib" value="${basedir}/lib" />
+	<property name="dir.licenses" value="${basedir}/licences" />
+	<property name="dir.src" value="${basedir}/src" />
+
+	<path id="class.path">
+		<fileset dir="${dir.lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- Targets =========================================================== -->
+
+	<target name="init" description="remove build dirs and prepare the build">
+
+		<delete dir="${dir.build.jar}" />
+		<delete dir="${dir.build.zip}" />
+		<delete dir="${dir.doc}/api" />
+
+		<mkdir dir="${dir.build.jar}" />
+		<mkdir dir="${dir.build.zip}" />
+		<mkdir dir="${dir.build.zip}/lib" />
+		<mkdir dir="${dir.build.zip}/out" />
+		<mkdir dir="${dir.dist}" />
+
+	</target>
+
+	<!-- Target compile ==================================================== -->
+
+	<target name="javac" depends="init" description="compile the source">
+
+		<javac destdir="${dir.build.jar}"
+		       compiler="javac1.5"
+		       listfiles="yes"
+		       source="1.5"
+		       target="1.5">
+			<src path="${dir.src}" />
+			<classpath refid="class.path" />
+		</javac>
+	</target>
+
+	<!-- Target jar ======================================================== -->
+
+	<target name="jar" depends="javac" description="create the JAR file">
+
+		<jar jarfile="${dir.lib}/repsi-tool.jar" basedir="${dir.build.jar}">
+			<manifest>
+				<attribute name="Created-By" value="Walter Weinmann" />
+				<attribute name="Main-Class"
+				           value="edu.ou.weinmann.repsi.controller.script.Main" />
+				<attribute name="Class-Path"
+				           value="commons-cli-1.0.jar commons-math-1.1.jar jxl.jar ojdbc14.jar" />
+			</manifest>
+		</jar>
+
+		<jar jarfile="${dir.build.zip}/lib/repsi-tool-${version}.jar"
+		     basedir="${dir.build.jar}">
+			<manifest>
+				<attribute name="Created-By" value="Walter Weinmann" />
+				<attribute name="Main-Class"
+				           value="edu.ou.weinmann.repsi.controller.script.Main" />
+				<attribute name="Class-Path"
+				           value="commons-cli-1.0.jar commons-math-1.1.jar jxl.jar ojdbc14.jar" />
+			</manifest>
+		</jar>
+
+		<delete dir="${dir.build.jar}" />
+
+	</target>
+
+	<!-- Target javadoc ==================================================== -->
+
+	<target name="javadoc" depends="init" description="generate the javadoc">
+
+		<javadoc access="public"
+		         author="true"
+		         destdir="${dir.doc}/api"
+		         doctitle="REPSI Tool"
+		         nodeprecated="false"
+		         nodeprecatedlist="false"
+		         noindex="false"
+		         nonavbar="false"
+		         notree="false"
+		         source="1.5"
+		         splitindex="true"
+		         use="true"
+		         version="true"
+		         windowtitle="REPSI Tool">
+			<classpath refid="class.path" />
+			<packageset dir="${dir.src}">
+				<include name="edu/ou/weinmann/repsi/**" />
+			</packageset>
+		</javadoc>
+	</target>
+
+	<target name="javadoc_docflex"
+	        depends="init"
+	        description="generate the javadoc using DocFlex">
+
+		<javadoc access="public"
+		         author="true"
+		         destdir="${dir.doc}"
+		         nodeprecated="false"
+		         nodeprecatedlist="false"
+		         noindex="false"
+		         nonavbar="false"
+		         notree="false"
+		         source="1.5"
+		         version="true">
+			<classpath refid="class.path" />
+			<doclet name="com.docflex.javadoc.Doclet"
+			        path="C:/Software/docflex-doclet-1.4.10/lib/docflex-doclet.jar">
+				<param name="-f" value="REPSI_Tool_Javadoc.rtf" />
+				<param name="-format" value="RTF" />
+				<param name="-nodialog" value="" />
+			</doclet>
+			<packageset dir="${dir.src}">
+				<include name="edu/ou/weinmann/repsi/**" />
+			</packageset>
+		</javadoc>
+
+	</target>
+
+	<!-- Target collect ==================================================== -->
+
+	<target name="collect"
+	        depends="jar,javadoc"
+	        description="collect all necessary files">
+
+		<copy todir="${dir.build.zip}">
+			<fileset dir="${dir.bin}">
+				<include name="*.bat" />
+				<include name="*.sh" />
+			</fileset>
+			<filterchain>
+				<tokenfilter>
+					<replaceregex pattern="repsi-tool.jar"
+					              replace="repsi-tool-${version}.jar"
+					              flags="g" />
+				</tokenfilter>
+			</filterchain>
+		</copy>
+		<copy todir="${dir.build.zip}/config">
+			<fileset dir="${dir.config}">
+				<include name="**/*.properties" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.build.zip}/doc">
+			<fileset dir="${dir.doc}">
+				<include name="*.pdf" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.build.zip}/doc/api">
+			<fileset dir="${dir.doc}/api">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.build.zip}/in">
+			<fileset dir="${dir.in}">
+				<exclude name="**/Obsolete/**" />
+				<exclude name="**/R/**" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.build.zip}/lib">
+			<fileset dir="${dir.lib}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.build.zip}/licenses">
+			<fileset dir="${dir.licenses}">
+				<include name="**/*.txt" />
+			</fileset>
+		</copy>
+
+		<!-- Fixing Carriage Returns ======================================= -->
+
+		<fixcrlf srcdir="${dir.build.zip}"
+		         eol="lf"
+		         eof="remove"
+		         includes="*.sh" />
+
+	</target>
+
+	<!-- Target zip binary ================================================= -->
+
+	<target name="zip_binary"
+	        depends="collect"
+	        description="create the binary ZIP file">
+
+		<delete file="${dir.dist}/REPSI_Tool_${version}.zip" />
+
+		<copy todir="${dir.dist}">
+			<fileset dir="${dir.doc}">
+				<include name="*.pdf" />
+			</fileset>
+		</copy>
+
+		<zip destfile="${dir.dist}/REPSI_Tool_${version}.zip"
+		     basedir="${dir.build.zip}" />
+
+		<delete dir="${dir.build.zip}" />
+
+	</target>
+
+	<!-- Target zip development ============================================ -->
+
+	<target name="zip_development"
+	        depends="zip_binary"
+	        description="create the development ZIP file">
+
+		<delete file="${dir.dist}/REPSI_Tool_${version}_Development.zip" />
+
+		<zip destfile="${dir.dist}/REPSI_Tool_${version}_Development.zip">
+			<fileset dir="${basedir}">
+				<exclude name="**/in Dissertation/**" />
+				<exclude name="**/Obsolete/**" />
+				<exclude name="out/*.xls" />
+			</fileset>
+		</zip>
+
+	</target>
+
+	<!-- Target measurement data =========================================== -->
+
+	<target name="zip_measurement_data"
+	        depends="zip_development"
+	        description="create the measurement data ZIP file">
+
+		<delete file="${dir.dist}/REPSI_Tool_${version}_Mesaurement_Data.zip" />
+
+		<zip destfile="${dir.dist}/REPSI_Tool_${version}_Mesaurement_Data.zip">
+			<fileset dir="${basedir}/out/in Dissertation">
+				<exclude name="ww10g2_ora_99999_9999.trc/**" />
+			</fileset>
+		</zip>
+
+	</target>
+
+</project>

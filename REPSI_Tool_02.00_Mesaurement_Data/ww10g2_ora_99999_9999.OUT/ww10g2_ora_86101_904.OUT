@@ -1,0 +1,3107 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Do Feb 1 15:08:15 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86101_904.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(150.3140) 2007-02-01 14:55:46.562
+
+********************************************************************************
+
+error connecting to database using: /@
+EXPLAIN PLAN option disabled.
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Misses in library cache during execute: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.14       0.17          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.04        689       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.18       0.22        689       1545          0        1611
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=689 pw=0 time=46143 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=689 pw=0 time=29325 us)
+     59    HASH GROUP BY (cr=693 pr=689 pw=0 time=29207 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=689 pw=0 time=22956 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9691 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.03          0       1545          0        1611
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=28179 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10110 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9496 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27463 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10897 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10834 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9490 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11099 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26726 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10408 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9306 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27464 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10720 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10600 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9520 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11312 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25792 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9292 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9526 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=30876 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10863 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10802 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9634 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=12954 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25742 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9309 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10933 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27265 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10807 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10747 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9632 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10956 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=30375 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=11045 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10298 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27952 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10813 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10751 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9653 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10034 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27706 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9494 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9628 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27941 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=11433 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=11371 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10257 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10975 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25755 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9341 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9442 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27274 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10747 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10627 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9593 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11011 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27610 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9474 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11189 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=29560 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=11128 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=11068 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9991 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11367 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27507 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9475 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9446 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27182 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10649 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10530 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9449 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11093 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27362 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9355 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9395 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27723 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=11144 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=11082 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9982 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9517 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27396 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9429 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10970 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27127 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10684 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10621 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9518 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9336 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25987 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9647 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9304 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=30811 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10480 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10417 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9312 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=13224 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26622 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9613 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10029 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=28040 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10654 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10534 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9345 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11906 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25469 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9236 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9271 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27847 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=11305 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=11186 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9981 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11055 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25571 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9352 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10891 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=28599 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10932 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10813 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9724 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10620 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.06       0.03          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.06       0.03          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=40072 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=20947 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11100 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27436 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10629 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10508 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9432 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11342 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25997 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9385 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9535 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27849 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10575 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10512 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9372 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10126 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25877 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9627 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10900 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=26919 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10494 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10374 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9291 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9414 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26005 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9648 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9282 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=26980 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10517 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10456 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9350 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9349 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26037 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9647 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11026 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27452 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10927 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10749 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9696 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11136 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25679 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9390 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9336 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=26871 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10452 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10390 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9276 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9304 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=28095 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9428 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10033 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=33690 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=11900 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=11838 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10719 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9829 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27341 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9444 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10933 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27176 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10620 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10494 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9463 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9442 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27428 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9376 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11051 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27851 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10781 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10661 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9540 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10002 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27777 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9410 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9788 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27898 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10716 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10595 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9506 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10151 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25829 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9626 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9244 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=26985 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10453 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10333 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9297 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9445 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25917 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9456 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9370 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27101 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10499 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10378 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9284 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11112 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25584 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9280 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9344 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27374 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10750 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10629 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9531 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11164 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=28683 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9559 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=12099 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27469 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10789 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10669 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9635 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11223 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26292 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9878 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9460 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27585 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=11068 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10948 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9894 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9447 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27234 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9273 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9394 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27679 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10979 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10916 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9760 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9499 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26331 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9466 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11381 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=28280 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10573 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10512 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9419 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10603 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26591 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10115 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9501 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27195 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10554 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10493 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9388 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11110 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27461 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9380 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11093 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27693 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10422 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10361 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9272 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10140 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25689 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9313 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9423 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=28011 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10682 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10562 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9463 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10165 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25731 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9426 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10955 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27202 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10609 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10547 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9444 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9443 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25678 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9418 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9296 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27112 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10624 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10504 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9411 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9432 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27735 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9270 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11506 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27061 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10666 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10546 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9444 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9395 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26625 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9545 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10026 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=29313 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10770 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10652 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9601 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11474 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.06       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.06       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25882 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9602 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10915 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=28018 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10858 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10796 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9662 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11699 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25457 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9211 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10893 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=28119 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=11337 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=11274 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10129 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9606 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=28256 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9975 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11333 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27245 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10764 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10702 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9550 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9340 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25736 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9414 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9353 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=29250 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=11195 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=11134 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10032 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=12594 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26317 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9378 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9974 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27100 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10467 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10348 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9321 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11134 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27336 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9364 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9386 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27724 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10863 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10743 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9683 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9768 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27298 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9372 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9368 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27046 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10603 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10484 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9432 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10995 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25979 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9520 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11130 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=27433 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10820 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10758 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9675 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9488 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=26063 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9842 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9226 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=32537 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=12202 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=12140 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9358 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=11630 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.04       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.04       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=27164 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9800 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=10337 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+(SELECT MAX (DC2.SERVICE_RECEIVER_ID)
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.01       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN  (cr=1545 pr=0 pw=0 time=29050 us)
+     59   VIEW  VW_SQ_1 (cr=693 pr=0 pw=0 time=10778 us)
+     59    HASH GROUP BY (cr=693 pr=0 pw=0 time=10715 us)
+   1611     TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9516 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9566 us)
+
+********************************************************************************
+
+SELECT DC1.IDENT
+FROM TSMT_DETAILED_CHARGING DC1
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC1.SERVICE_RECEIVER_ID <=
+ANY (SELECT DC2.SERVICE_RECEIVER_ID
+FROM TSMT_DETAILED_CHARGING DC2
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+AND DC2.SERVICE_ID = DC1.SERVICE_ID)
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      162      0.03       0.02          0       1545          0        1611
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      164      0.03       0.02          0       1545          0        1611
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1611  HASH JOIN RIGHT SEMI (cr=1545 pr=0 pw=0 time=25685 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9373 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=852 pr=0 pw=0 time=9342 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.15       0.19          0          0          0           0
+Execute    102      0.03       0.00          0          0          0           0
+Fetch    16200      2.54       2.46        689     154500          0      161100
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    16403      2.73       2.66        689     154500          0      161100
+
+Misses in library cache during parse: 3
+Misses in library cache during execute: 1
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse       55      0.01       0.00          0          0          0           0
+Execute     55      0.00       0.00          0          0          0           0
+Fetch      162      0.01       0.04          3        271          0         119
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      272      0.03       0.05          3        271          0         119
+
+Misses in library cache during parse: 1
+Misses in library cache during execute: 1
+
+  102  user  SQL statements in session.
+   55  internal SQL statements in session.
+  157  SQL statements in session.
+    0  statements EXPLAINed in this session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_86101_904.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+      55  internal SQL statements in trace file.
+     157  SQL statements in trace file.
+      14  unique SQL statements in trace file.
+   18535  lines in trace file.
+       8  elapsed seconds in trace file.
+
+

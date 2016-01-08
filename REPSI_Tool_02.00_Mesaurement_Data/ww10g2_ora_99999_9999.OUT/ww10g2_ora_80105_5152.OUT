@@ -1,0 +1,2449 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Fr Dez 15 14:50:55 2006
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80105_5152.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(149.212) 2006-12-15 12:42:48.234
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.03        690        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.03        690        693          0        1774
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=690 pw=0 time=29720 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=690 pw=0 time=33855 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20277 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19920 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33259 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=22060 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20091 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33250 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19856 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19900 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19868 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20725 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33250 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19893 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20908 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20783 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33251 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20556 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33260 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=23850 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33263 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20580 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33247 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20262 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33256 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=21818 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33255 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20876 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20136 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.04       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.04       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20710 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20069 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20393 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33249 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19856 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19712 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33253 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20239 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19917 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20392 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20287 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=22210 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33247 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20020 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20122 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20276 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33253 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19888 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20118 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20070 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33247 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20039 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20321 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19996 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.04       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.04       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20453 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20072 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=21320 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19963 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20202 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19991 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.04       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.04       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=21504 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20032 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33248 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20750 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20167 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19655 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19979 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19723 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20236 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20500 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33259 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20527 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20335 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33249 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19892 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33240 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=21102 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33247 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20393 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=22275 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19796 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19966 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20388 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19859 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33259 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20015 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33330 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20102 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20498 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33240 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19954 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19978 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19999 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33245 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19867 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33254 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20202 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33303 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20259 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20207 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19813 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20014 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20096 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20540 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33249 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20003 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19945 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33244 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20177 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33250 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20399 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=21022 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33249 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19708 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20013 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20493 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19672 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.04       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.04       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19907 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20133 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33238 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.04       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.04       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20708 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20044 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33242 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.01       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19721 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20489 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19691 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33257 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.03       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.03       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20058 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33240 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=20090 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33253 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20282 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33243 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19748 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=19690 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33241 us)
+
+********************************************************************************
+
+SELECT AMOUNT_SERVICE
+FROM TSMT_DETAILED_CHARGING
+GROUP BY AMOUNT_SERVICE
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH GROUP BY (cr=693 pr=0 pw=0 time=19994 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33246 us)
+
+********************************************************************************
+
+SELECT DISTINCT AMOUNT_SERVICE 
+FROM
+ TSMT_DETAILED_CHARGING
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      178      0.01       0.02          0        693          0        1774
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      180      0.01       0.02          0        693          0        1774
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+   1774  HASH UNIQUE (cr=693 pr=0 pw=0 time=20176 us)
+  33183   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=33239 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.00       0.00          0          0          0           0
+Execute    102      0.01       0.01          0          0          0           0
+Fetch    17800      2.18       2.09        690      69300          0      177400
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    18003      2.20       2.11        690      69300          0      177400
+
+Misses in library cache during parse: 1
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      0      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        0      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    0  internal SQL statements in session.
+  102  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80105_5152.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+     102  SQL statements in trace file.
+       4  unique SQL statements in trace file.
+   18733  lines in trace file.
+       9  elapsed seconds in trace file.
+
+

@@ -1,0 +1,2349 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Fr Dez 15 14:51:41 2006
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80402_4908.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(137.904) 2006-12-15 13:19:37.468
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.67       4.21       7814      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.67       4.21       7814      85133          0      390428
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=7814 pw=0 time=5120198 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=872 pw=0 time=2779951 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.48       2.34      24222      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.48       2.34      24222      63665          0      390428
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=24222 pw=0 time=1562785 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.71       1.96       6777      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.71       1.96       6777      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=6777 pw=0 time=2733771 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=866 pw=0 time=784186 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.21       2.35      23081      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.21       2.35      23081      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=23081 pw=0 time=1562752 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.09       1.90       5727      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.09       1.90       5727      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=5727 pw=0 time=2733742 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=860 pw=0 time=783979 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.50       2.37      22108      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.50       2.37      22108      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=22108 pw=0 time=1562756 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.95       1.86       4777      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.95       1.86       4777      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4777 pw=0 time=2733746 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=857 pw=0 time=783976 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.60       2.63      21328      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.60       2.63      21328      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21328 pw=0 time=1953327 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.09       1.85       4036      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.09       1.85       4036      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4036 pw=0 time=2733765 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=857 pw=0 time=783993 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.82       2.84      21372      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.82       2.84      21372      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21372 pw=0 time=2343873 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.20       2.08       4112      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.20       2.08       4112      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4112 pw=0 time=3124190 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=864 pw=0 time=1174443 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.34       2.34      21227      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.34       2.34      21227      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21227 pw=0 time=1562774 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.15       1.92       3934      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.15       1.92       3934      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=3934 pw=0 time=2733942 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=784182 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      3.04       2.84      21309      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      3.04       2.84      21309      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21309 pw=0 time=2343871 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.70       2.32       4055      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.70       2.32       4055      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4055 pw=0 time=3124231 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=1174540 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.78       2.85      21477      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.78       2.85      21477      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21477 pw=0 time=2343855 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.90       1.88       4195      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.90       1.88       4195      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4195 pw=0 time=2733835 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784044 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.26       2.35      21276      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.26       2.35      21276      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21276 pw=0 time=1562758 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.93       1.83       3998      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.93       1.83       3998      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=3998 pw=0 time=2733777 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784066 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.48       2.37      21420      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.48       2.37      21420      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21420 pw=0 time=1953180 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.92       1.85       4088      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.92       1.85       4088      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4088 pw=0 time=2733793 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784023 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.04       2.36      21276      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.04       2.36      21276      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21276 pw=0 time=1562744 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.95       1.84       3981      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.95       1.84       3981      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=3981 pw=0 time=2734418 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=783988 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.20       2.35      21365      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.20       2.35      21365      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21365 pw=0 time=1562895 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.10       1.85       4102      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.10       1.85       4102      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4102 pw=0 time=2733789 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=784026 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.51       2.33      21320      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.51       2.33      21320      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21320 pw=0 time=1562752 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.01       1.85       4036      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.01       1.85       4036      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4036 pw=0 time=2733775 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=869 pw=0 time=784018 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.45       2.34      21317      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.45       2.34      21317      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21317 pw=0 time=1953164 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.84       1.85       4055      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.84       1.85       4055      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4055 pw=0 time=2733771 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784065 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.65       2.34      21293      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.65       2.34      21293      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21293 pw=0 time=1562775 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.78       1.95       4029      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.78       1.95       4029      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4029 pw=0 time=2733793 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=870 pw=0 time=784022 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.20       2.35      21316      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.20       2.35      21316      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21316 pw=0 time=1953193 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.98       1.84       4057      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.98       1.84       4057      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4057 pw=0 time=2733828 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784040 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.28       2.37      21257      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.28       2.37      21257      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21257 pw=0 time=1953191 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.32       1.84       3984      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.32       1.84       3984      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=3984 pw=0 time=2733784 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=784023 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.95       2.34      21324      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.95       2.34      21324      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21324 pw=0 time=1953191 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.71       1.83       4065      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.71       1.83       4065      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4065 pw=0 time=2733770 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=783991 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.14       2.35      21298      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.14       2.35      21298      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21298 pw=0 time=1953190 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.01       1.84       4017      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.01       1.84       4017      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4017 pw=0 time=2733806 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784022 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.32       2.35      21305      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.32       2.35      21305      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21305 pw=0 time=1953169 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.85       1.84       4046      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.85       1.84       4046      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4046 pw=0 time=2733768 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=869 pw=0 time=784018 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.60       2.36      21363      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.60       2.36      21363      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21363 pw=0 time=1562763 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.84       1.85       4098      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.84       1.85       4098      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4098 pw=0 time=2733780 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784036 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.75       2.34      21350      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.75       2.34      21350      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21350 pw=0 time=1953215 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.89       1.85       4086      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.89       1.85       4086      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4086 pw=0 time=2733770 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784000 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.23       2.34      21326      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.23       2.34      21326      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21326 pw=0 time=1953236 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.96       1.86       4029      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.96       1.86       4029      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4029 pw=0 time=2733773 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784009 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.54       2.38      21303      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.54       2.38      21303      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21303 pw=0 time=1953177 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.93       2.02       4041      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.93       2.02       4041      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4041 pw=0 time=2733795 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=784038 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.75       2.73      21365      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.75       2.73      21365      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21365 pw=0 time=2343794 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.93       2.03       4106      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.93       2.03       4106      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4106 pw=0 time=2733798 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=870 pw=0 time=784061 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.92       2.37      21299      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.92       2.37      21299      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21299 pw=0 time=1953220 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.98       2.21       4026      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.98       2.21       4026      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4026 pw=0 time=3124221 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174455 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.53       2.40      21303      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.53       2.40      21303      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21303 pw=0 time=1953204 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.89       1.87       4045      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.89       1.87       4045      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4045 pw=0 time=2733766 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=783997 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.07       2.34      21308      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.07       2.34      21308      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21308 pw=0 time=1953187 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.79       1.94       4040      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.79       1.94       4040      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4040 pw=0 time=2733780 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784052 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.54       2.36      21295      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.54       2.36      21295      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21295 pw=0 time=1953192 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.75       1.86       4036      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.75       1.86       4036      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4036 pw=0 time=2733778 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=866 pw=0 time=783983 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.62       2.35      21364      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.62       2.35      21364      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21364 pw=0 time=1953164 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.00       1.84       4094      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.00       1.84       4094      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4094 pw=0 time=2733823 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=870 pw=0 time=784003 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.20       2.36      21328      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.20       2.36      21328      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21328 pw=0 time=1953178 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.76       1.84       4062      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.76       1.84       4062      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4062 pw=0 time=2733773 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=784005 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.48       2.35      21344      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.48       2.35      21344      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21344 pw=0 time=1953200 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.73       1.88       4076      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.73       1.88       4076      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4076 pw=0 time=2733791 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784016 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.78       2.72      21452      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.78       2.72      21452      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21452 pw=0 time=2343809 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.00       2.42       4171      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.00       2.42       4171      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4171 pw=0 time=3514646 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=1174517 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.95       2.84      21274      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.95       2.84      21274      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21274 pw=0 time=2343891 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.51       2.38       3988      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.51       2.38       3988      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=3988 pw=0 time=3514652 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174518 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.95       2.86      21325      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.95       2.86      21325      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21325 pw=0 time=2343981 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.59       2.36       4065      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.59       2.36       4065      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4065 pw=0 time=3514634 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174458 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.73       2.85      21244      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.73       2.85      21244      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21244 pw=0 time=2343899 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.75       2.36       3969      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.75       2.36       3969      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=3969 pw=0 time=3515189 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174692 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      3.03       2.82      21278      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      3.03       2.82      21278      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21278 pw=0 time=2343884 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.73       1.84       4022      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.73       1.84       4022      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4022 pw=0 time=2733775 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=783991 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.53       2.47      21541      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.53       2.47      21541      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21541 pw=0 time=1953288 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.73       2.36       4233      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.73       2.36       4233      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4233 pw=0 time=3514645 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174506 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.21       4.28      21696      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.21       4.29      21696      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21696 pw=0 time=3905385 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.84       1.88       4356      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.84       1.88       4356      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4356 pw=0 time=2733785 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=783984 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.64       2.73      21294      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.64       2.73      21294      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21294 pw=0 time=2344086 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.20       2.13       4010      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.20       2.13       4010      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4010 pw=0 time=3124299 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174476 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.56       2.42      21332      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.56       2.42      21332      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21332 pw=0 time=1953259 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.28       2.23       4063      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.28       2.23       4063      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4063 pw=0 time=3124199 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=1174455 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.56       2.67      21270      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.56       2.67      21270      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21270 pw=0 time=1953327 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.31       2.37       4001      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.31       2.37       4001      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4001 pw=0 time=3514632 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174499 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.62       2.72      21275      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.62       2.72      21275      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21275 pw=0 time=2343831 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.98       1.95       4009      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.98       1.96       4009      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4009 pw=0 time=2733869 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784104 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.53       2.85      21262      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.53       2.85      21262      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21262 pw=0 time=2343915 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.90       2.05       3993      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.90       2.05       3993      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=3993 pw=0 time=2733789 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=784027 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.45       2.35      21300      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.45       2.35      21300      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21300 pw=0 time=1953190 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.01       1.84       4033      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.01       1.84       4033      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4033 pw=0 time=2733771 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784008 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.90       2.85      21262      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.90       2.85      21262      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21262 pw=0 time=2343928 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.40       2.35       3989      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.40       2.35       3989      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=3989 pw=0 time=3514878 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174572 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.85       2.83      21279      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.85       2.83      21279      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21279 pw=0 time=2343975 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.40       2.37       4012      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.40       2.37       4012      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4012 pw=0 time=3514652 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174455 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      3.01       2.84      21301      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      3.01       2.84      21301      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21301 pw=0 time=2343895 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.35       2.07       4008      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.35       2.07       4008      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4008 pw=0 time=3124212 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=867 pw=0 time=1174444 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.20       2.41      21272      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.20       2.41      21272      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21272 pw=0 time=1953173 us)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE COMPANY_CD = '1201'
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      1.64       1.85       4003      85133          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      1.64       1.85       4003      85133          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS BY INDEX ROWID TSMT_MDB_ACCOUNT_RUD (cr=85133 pr=4003 pw=0 time=2733784 us)
+ 390428   INDEX RANGE SCAN T_SMT_MAR_COMPANY_CD (cr=39828 pr=868 pw=0 time=784033 us)(object id 87336)
+
+********************************************************************************
+
+SELECT *
+FROM TSMT_MDB_ACCOUNT_RUD
+WHERE TO_NUMBER (COMPANY_CD) = 1201
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch    39043      2.07       2.37      21300      63665          0      390428
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    39045      2.07       2.37      21300      63665          0      390428
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+ 390428  TABLE ACCESS FULL TSMT_MDB_ACCOUNT_RUD (cr=63665 pr=21300 pw=0 time=1953245 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.00       0.00          0          0          0           0
+Execute    102      0.00       0.00          0          0          0           0
+Fetch   3904300    226.42     229.92    1283345    7439900          0    39042800
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   3904503    226.42     229.93    1283345    7439900          0    39042800
+
+Misses in library cache during parse: 2
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      0      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        0      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    0  internal SQL statements in session.
+  102  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_80402_4908.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+     102  SQL statements in trace file.
+       4  unique SQL statements in trace file.
+ 3905462  lines in trace file.
+    1790  elapsed seconds in trace file.
+
+

@@ -1,0 +1,2551 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on So Jan 28 11:49:08 2007
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_4524.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+--------------------------------------------------------------------------------
+
+*** SESSION ID:(131.1479) 2007-01-28 11:43:24.762
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=TRUE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Misses in library cache during execute: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.03       0.03        690        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.03       0.03        690        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=690 pw=0 time=37590 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=690 pw=0 time=35414 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11391 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10574 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=12638 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=11444 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11904 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10421 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11075 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10424 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11250 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10399 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11369 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10315 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=12368 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10984 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=12254 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=11507 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=13783 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10735 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11014 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10324 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11134 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10331 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11562 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10366 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11592 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10626 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=12134 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=11396 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11319 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10470 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11365 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10570 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11730 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10944 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11021 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10320 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11552 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10828 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10702 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10064 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10949 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10245 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10814 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10132 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10863 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10107 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10800 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10114 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10740 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10096 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10695 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10066 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10958 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10279 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10978 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10277 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11097 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10114 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10699 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10023 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10806 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10163 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10683 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10052 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10713 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10095 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=13015 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10236 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11466 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10706 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11036 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10254 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10925 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10122 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11570 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10739 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11611 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10894 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10744 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10064 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11031 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10346 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10749 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9996 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10680 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10056 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10772 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10092 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10939 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10234 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10867 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10145 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10770 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10071 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10706 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10033 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10728 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10074 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10699 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10023 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11339 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10291 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11210 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=13331 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10760 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10073 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10717 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10014 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10736 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10095 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10761 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10031 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10688 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10053 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10735 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10063 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11016 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10299 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11346 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10580 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10762 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10070 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10623 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=9997 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10772 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10067 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11075 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10055 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11129 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10399 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11885 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10031 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=12165 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10955 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11913 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=11165 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11565 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10490 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11083 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10401 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11012 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10280 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10876 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10207 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11134 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10451 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10805 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10158 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10827 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10196 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10779 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10126 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11078 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10408 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11745 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=11045 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10873 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10230 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10849 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10083 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10734 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10092 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11150 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10507 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10703 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10077 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10824 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10205 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10695 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10073 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10960 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10358 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10676 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10085 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11127 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10072 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10790 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10152 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10894 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10198 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10667 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10083 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=12069 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=11425 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10931 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10354 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=11353 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10671 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=12686 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=12041 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10757 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10116 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10755 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10123 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM (SELECT SERVICE_ID
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE))
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.00       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.00       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10742 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10179 us)
+
+********************************************************************************
+
+SELECT SERVICE_ID, COUNT (*)
+FROM TSMT_DETAILED_CHARGING
+WHERE PERIOD = CAST ('01.01.2006' AS DATE)
+GROUP BY SERVICE_ID
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        6      0.01       0.01          0        693          0          59
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        8      0.01       0.01          0        693          0          59
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+     59  HASH GROUP BY (cr=693 pr=0 pw=0 time=10951 us)
+   1611   TABLE ACCESS FULL TSMT_DETAILED_CHARGING (cr=693 pr=0 pw=0 time=10183 us)
+
+********************************************************************************
+
+ALTER SESSION SET SQL_TRACE=FALSE
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 75  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse      101      0.01       0.00          0          0          0           0
+Execute    102      0.00       0.01          0          0          0           0
+Fetch      600      1.17       1.15        690      69300          0        5900
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      803      1.18       1.17        690      69300          0        5900
+
+Misses in library cache during parse: 1
+Misses in library cache during execute: 1
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      0      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        0      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+
+  102  user  SQL statements in session.
+    0  internal SQL statements in session.
+  102  SQL statements in session.
+********************************************************************************
+Trace file: C:\Software\oracle\product\admin\ww10g2\udump\ww10g2_ora_4524.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+     102  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+     102  SQL statements in trace file.
+       4  unique SQL statements in trace file.
+    1783  lines in trace file.
+       2  elapsed seconds in trace file.
+
+
